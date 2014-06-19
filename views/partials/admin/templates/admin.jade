@@ -1,5 +1,9 @@
-//Created by juliarietveld on 11/06/14.
+menu
+   li
+      a.brand(href="/") Articles
+   li
+      a.brand(href="/") Categories
+   li
+      a.brand(href="/") Users
 
-div#menu_wrapper(ng-init="menu_template_src= /admin/template/includes/menu.jade" ng-include src="menu_template_src")
-div(ng-controller="admincontroller")
-
+   button(type="submit" ng-click="newArticle()") New article
