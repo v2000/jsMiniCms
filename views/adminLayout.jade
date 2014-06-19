@@ -1,0 +1,43 @@
+doctype html
+html(ng-appAdmin="myAdmin")
+  head
+    meta(charset='utf8')
+    //base(href='/minisms/')
+    base(href='/')
+    title Verajulia - Admin
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/admincss.css')
+  body
+    div.navbar.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          a.brand(href="/admin") Admin panel
+
+    div.container
+      div.row
+        div.span12
+          div(ng-controller='MainCtrl')
+            ng-view
+
+      div.footer
+        p &copy; Verajulia 2014
+
+
+      script(src='js/lib/angular/angular.js')
+      script(src='js/lib/angular/angular-resource.js')
+      script(src='js/appAdmin.js')
+      script(src='js/services.js')
+      script(src='js/controllers/admin/admincontroller.js')
+      script(src='js/controllers/admin/adminmenucontroller.js')
+      script(src='js/controllers/admin/articleaddcontroller.js')
+      script(src='js/controllers/admin/articlescontroller.js')
+      script(src='js/controllers/admin/categoriesaddcontroller.js')
+      script(src='js/controllers/admin/categoriescontroller.js')
+      script(src='js/controllers/admin/errorcontroller.js')
+      script(src='js/controllers/admin/logincontroller.js')
+      script(src='js/controllers/admin/userscontroller.js')
+      script(src='js/controllers/admin/LoginCtrl.js')
+      script(src='js/controllers/admin/MainCtrl.js')
+
+
