@@ -12,7 +12,15 @@ html(ng-app="myAdmin")
     div.navbar.navbar-fixed-top
       div.navbar-inner
         div.container
-          a.brand(href="/admin") Admin panel
+       
+          a.brand(href="/admin") 
+            b Admin panel
+          //a.brand()
+          //a.brand() 
+          //a.brand()  
+          //a.brand(href="/admin") Articles
+          //a.brand(href="/admin") Categories
+          //a.brand(href="/admin") Users
 
     div.container
       div.row
@@ -25,6 +33,7 @@ html(ng-app="myAdmin")
 
       script(src='js/lib/angular/angular.js')
       script(src='js/lib/angular/angular-resource.js')
+      script(src='js/lib/jquery.js')
       script(src='js/appAdmin.js')
       script(src='js/servicesAdmin.js')
       script(src='js/controllers/admin/admincontroller.js')

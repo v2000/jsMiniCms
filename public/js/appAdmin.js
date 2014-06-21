@@ -16,7 +16,7 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
         controller: "LoginCtrl"
       })*/
       .when("/articles/new", {
-        templateUrl: "partials/admin/templates/ledit.jade",
+        templateUrl: "partials/admin/templates/edit.jade",
         controller: "ArticlesEditCtrl"
       })
       .when("/articles/new/:depId", {
