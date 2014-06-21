@@ -8,8 +8,12 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
 
 //admin
       .when("/admin", {
-        templateUrl: "partials/admin/templates/login.jade",
+        templateUrl: "partials/admin/templates/admin.jade",
         controller: "AdminCtrl"
+      })
+      .when("/articles", {
+        templateUrl: "partials/site/article.jade",
+        controller: "ArticlesIndexCtrl"
       })
       /*.when("/admin", {
         templateUrl: "partials/admin/templates/login.jade",
