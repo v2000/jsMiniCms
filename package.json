@@ -1,6 +1,7 @@
 {
     "name": "minicms", 
     "version": "0.0.1", 
+    "description": "MEAN stack mini CSM",
     "private": true, 
 
     "dependencies": {
