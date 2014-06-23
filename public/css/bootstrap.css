@@ -268,16 +268,7 @@ a:focus {
   *zoom: 1;
 }
 
-.row:before,
-.row:after {
-  display: table;
-  line-height: 0;
-  content: "";
-}
 
-.row:after {
-  clear: both;
-}
 
 [class*="span"] {
   float: left;

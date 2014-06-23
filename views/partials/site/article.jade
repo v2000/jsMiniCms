@@ -4,7 +4,7 @@ div Number of articles: {{articles.length}}
 div Number of categories: {{categories.length}}
 
 div.row
-  div.col-md-8
+  div.col-md-9
       div(ng-repeat="article in articles")
         p
           a(href="/articles/{{article._id}}") {{article.title}}
@@ -15,17 +15,17 @@ div.row
       button.btn.btn-success(ng-click="newArticle()") New Article
       br
       br
-      div.col-md-4 
-      p
-        b Category:
+    div.col-md-2.col-md-offset-1.blog-sidebar
+        p
+          b Category:
 
-      div(ng-repeat="article in articles")
+        div(ng-repeat="article in articles")
           p
             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
 
-      p
-        b Arkiv:
+        p
+          b Arkiv:
 
-      div(ng-repeat="article in articles")
+        div(ng-repeat="article in articles")
           p
             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
