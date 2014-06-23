@@ -1,4 +1,6 @@
-h3 Category: 
+div#menu_wrapper(ng-init="menu_template_src = 'views/menuFront'" ng-include src="menu_template_src")
+
+h3 Category:
 	p {{category.name}}
 		div Number of articles in {{category.name}}: {{articles.length}}
 			div(ng-repeat="article in articles")

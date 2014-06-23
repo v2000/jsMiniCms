@@ -1,31 +1,20 @@
-h3 Employee Details
-
-form.form-horizontal(name="form", ng-submit="submit()", novalidate)
-
- .control-group(ng-class="errorClass('department')")
-    label.control-label(for="department") Department
-    .controls
-      select(ng-model="employee.departmentId", name="department", require, ng-options="department._id as department.name for department in departments", autofocus)
-
- .control-group(ng-class="errorClass('pno')")
-    label.control-label(for="pno") P-number
-    .controls
-      input(ng-model="employee.pno", type="number", name="pno", placeholder="P-number", require)
-
-  .control-group(ng-class="errorClass('firstname')")
-    label.control-label(for="firstname") First Name
-    .controls
-      input(ng-model="employee.firstname", type="text", name="firstname", placeholder="First Name", require)
-
-  .control-group(ng-class="errorClass('lastname')")
-    label.control-label(for="lastname") Last Name
-    .controls
-      input(ng-model="employee.lastname", type="text", name="lastname", placeholder="Last Name", require)
-
-  .control-group(ng-class="errorClass('salary')")
-    label.control-label(for="salary") Salary
-    .controls
-      input(ng-model="employee.salary", type="number", name="salary", placeholder="Monthly salary", require)
+div#menu_wrapper(ng-init="menu_template_src = '/views/partials/templates/menu.jade'" ng-include src="menu_template_src")
+    div.container
+        div#form_container
+            form#add_article(action={{action_url}} method='POST')
+                label Title
+                    input(type="text" name="title" value="{{edit.title}}")
+                label Short description
+                    textarea(name="short_description content" cols="20" rows="10"){{edit.short_description}}
+                label Description
+                    textarea(name="description content" cols="50" rows="10"){{edit.description}}
+                label Image
+                    input(type="file" name="image" value='Choose file')
+                label Select category
+                    select(name="category")
+                        option Select
+                        option(ng-repeat="item in categories" value="{{category.id}}" selected="{{item.selected}}"){{category.title}}
+            button#submit_article(ng-click="save()") Submit
 
   .control-group
     .controls

@@ -1,4 +1,4 @@
-// Schema for Employee;
+// Schema for Article
 exports.schema = {
   title: String,
   smallbody: String,
@@ -10,12 +10,12 @@ exports.schema = {
 // Require autoREST-library
 var autoREST = require("../libs/autoREST");
 
-// API routes for Employee
+// API routes for Article
 var routes = exports.routes = autoREST.buildRoutes(
   "Article", "articles:ALL"
 );
 
-// List of employeers - modify with a join on department
+// List of articles - modify with a join on category
 autoREST.modify(routes["GET:articles"],{
   populate: {
     join: "Category",
@@ -25,13 +25,13 @@ autoREST.modify(routes["GET:articles"],{
   }
 });
 
-// One employee - modify with join on department
+// One article - modify with join on category
 // (reusing the join from our previous route)
 autoREST.modify(routes["GET:articles/:id"],{
   populate: routes["GET:articles"].populate
 });
 
-// Return a list of employees in a certain department
+// Return a list of articles in a certain categpry
 autoREST.add(routes,"GET:articles/category/:id",{
   query: function(req){ return {categoryId: req.params.id}; }
 });

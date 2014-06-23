@@ -3,23 +3,14 @@ div#menu_wrapper(ng-init=menu_template_src = '/admin/templates/include/menu' ng-
         div#form_container
             table.listview
                 thead
-                    th {{myObj['ID']}}
-                    th {{myObj['Title']}}
-                    th {{myObj['Short description']}}
-                    th {{myObj['Url']}}
-                    th {{myObj['Parent category']}}
                     th {{myObj['Created']}}
                     th {{myObj['Edit']}}
                     th {{myObj['Delete']}}
                 tbody
                     tr(ng-repeat='item in categories')
                         td {{$index+1}}
-                        td.center {{item._id}}/td
                         td {{item.title}}
-                        td {{item.short_description}}
-                        td {{item.url}}
-                        td.center {{item.parent.title}}/td
-                        td.center {{item.date}}/td
+                        td.center {{item.date}}
                         td.center: a(href={{item.edit_url}})  Edit
                         td.center: a(href='#' data-deleteurl={{item.delete_url}} ng-click=confirmDelete($event)) Delete
                     tr

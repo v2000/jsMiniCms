@@ -1,18 +1,4 @@
-div.navbar.navbar-fixed-top
-  div.navbar-inner
-    div.container
-      a.brand(href="/admin") 
-            b Admin panel
-      a.brand()
-      a.brand() 
-      a.brand()  
-      a.brand(href="/admin") Articles
-      a.brand()
-      a.brand(href="/admin") Categories
-      a.brand()
-      a.brand(href="/admin") Users
-      a.brand()
-      a.brand(href="/articles") Show site
+include menu
 
 button(type="submit" ng-click="newArticle()") New article
 
@@ -29,8 +15,7 @@ div.row
         p {{article.smallbody}}
 
       button.btn.btn-success(ng-click="newArticle()") New Article
-      br
-      br
+
       div.col-md-4 
       p
         b Category:
