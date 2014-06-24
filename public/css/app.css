@@ -6,3 +6,8 @@ footer {
 .btn, button {
   margin-right:10px;
 }
+
+th {padding-right: 10px;}
+ul {text-decoration: none; list-style: none;}
+a {font-size: 14px;}
+h2 {text-align: center;}

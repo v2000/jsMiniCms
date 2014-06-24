@@ -1,42 +1,47 @@
-h3 Articles
 
-div Number of articles: {{articles.length}}  
-div Number of categories: {{categories.length}}
 
 div.row
-  div.col-md-8
-      button.btn.btn-success(ng-click="newArticle()") New Article
-      div#form_container
-          table.listview
-              thead
-                  th Id
-                  th Title
-                  th Category
-                  th Date
-                  th Author
-                  th Smallbody
+    div.container
+        h2 Articles
+        p Number of articles: {{articles.length}}
+        p Number of categories: {{categories.length}}
+        div.col-md-8
 
-              tr(ng-repeat="item in articles")
-                  td.center {{ article.id }}
-                  td {{ article.title }}
-                  td {{ article.category }}
-                  td {{ article.date }}
-                  td {{ article.author }}
-                  td {{ article.smallbody }}
-              tr
-                  td 'No records to display'
-
-
-
-      div.col-md-4 
-      h2 Category
-
-      div(ng-repeat="article in articles")
+            article(ng-repeat="item in articles")
+                h3 {{ article.title }}
+                p Category: {{ article.category }}
+                p {{ article.date }}
+                p {{ article.author }}
+                p {{ article.smallbody }}
+            article
+                h3 First article
+                p Category: Web development
+                p 04-12-2014
+                p James Bond
+                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            article
+                h3 Second article
+                p Category: Web development
+                p 04-12-2014
+                p Mary Bond
+                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        div.col-md-4
+         button.btn.btn-success(ng-click="newArticle()") New Article
+         h2 Category
+         ul
+           li: a(href="#") Web development
+           li: a(href="#") Web design
+           li: a(href="#") Mobile development
+           li: a(href="#") Rich Internet Applications
+         div(ng-repeat="article in articles")
           p
             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
-
-      h2 Archive
-
-      div(ng-repeat="article in articles")
-          p
-            a(href="/articles/category/{{article.categoryId}}") {{article.category}}
+         h2 Archive
+         ul
+           li: a(href="#") Januari
+           li: a(href="#") Februari
+           li: a(href="#") March
+           li: a(href="#") April
+         div(ng-repeat="article in articles")
+           p
+             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
