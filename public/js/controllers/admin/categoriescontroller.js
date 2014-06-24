@@ -18,10 +18,6 @@
         $scope.myObj = {
             'ID' : 'ID',
             'Title' : 'Title',
-            'Short description' : 'Short description',
-            'Url': 'Url',
-            'Parent category' : 'Parent category',
-            'Created' : 'Created',
             'Edit' : 'Edit',
             'Delete' : 'Delete',
             'No records to display' : 'No records to display'
@@ -77,8 +73,6 @@
             }
             compileFactory.compileConfirmOverly( $scope );
         }
-      $scope.addItem = function() {
-          $scope.invoice.items.push({id:0, title:0, parent:"", date:""});
 
         /**
          * Categories
@@ -149,7 +143,7 @@
         }, function(res){
             if( res.data && res.data.length > 0 ){
                 $scope.categories = filter(res.data);
-                angular.element( document.querySelector('table.greed tbody .nodata') ).css("display","none");
+                angular.element( document.querySelector('table.listview tbody .nodata') ).css("display","none");
             }
         });
     }

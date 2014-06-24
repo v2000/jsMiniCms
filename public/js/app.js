@@ -8,7 +8,7 @@ var app = angular.module('myApp', ["ngResource"]).config([
 
 //visitors
       .when("/articles", {
-        templateUrl: "partials/site/article.jade",
+        templateUrl: "partials/site/articlesListView.jade",
         controller: "ArticlesIndexCtrl"
       })
       .when("/articles/:id", {

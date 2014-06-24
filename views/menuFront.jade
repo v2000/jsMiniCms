@@ -1,29 +1,22 @@
-
 nav.navbar.navbar-default(role="navigation")
+    div.container-fluid
+        div.navbar-header
+            button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href="/admin") Verajulia - mini CMS
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+            ul.nav.navbar-nav
+                 li.active: a(href="/site/articleListView") Home
+            ul.nav.navbar-nav.navbar-right
+                li: a(href="views/partials/admin/templates/login") Login
+    div.container
+        div.row
+            div.span12
+                div(ng-controller='')
+                    ng-view
 
-nav.navbar.navbar-default
 
-div.container-fluid
-div.navbar-header
-button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
-span.sr-only Toggle navigation
-span.icon-bar
-span.icon-bar
-span.icon-bar
-a.navbar-brand(href="/admin") Verajulia - mini CMS
-    div.collapse.navbar-collapse#bs-example-navbar-collapse-1
-        ul.nav.navbar-nav
-            li.active: a(href="/site/articleListView") Home
-            li: a(href="/admin/templates/login") Login
-        form.navbar-form.navbar-left(role="search")
-            div.form-group
-                input(type="text" class="form-control" placeholder="Search")
-            button.btn.btn-default(type="submit") Submit
-        ul.nav.navbar-nav.navbar-right
-            li: a(href="#")
-    //div.container
-        //div.row
-            //div.span12
-                //div(ng-controller='MainCtrl')
-                    //ng-view
     
