@@ -21,5 +21,5 @@ exports.site = function (req, res) {
 exports.admin = function (req, res) {
   var name = req.params.name;
   console.log("name", name);
-  res.render('partials/admin/templates/' + name);
+  res.render('partials/admin/' + name);
 };

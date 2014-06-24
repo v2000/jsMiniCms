@@ -1,0 +1,23 @@
+
+div#form_container
+    h3 List of articles
+    table.listview
+        thead
+            th Id
+            th Title
+            th Category
+            th Date
+            th Author
+            th Edit
+            th Delete
+
+        tr(ng-repeat="item in articles")
+            td.center {{ article.id }}
+            td {{ article.title }}
+            td {{ article.category }}
+            td {{ article.date }}
+            td {{ article.author}}
+            td: a(href="{{ article.edit_url }}") Edit
+            td: a(href="#" data-deleteurl="{{ article.delete_url}}" ng-click="confirmDelete($event)") Delete
+        tr
+            td 'No records to display'

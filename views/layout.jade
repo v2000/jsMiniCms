@@ -2,8 +2,8 @@ doctype html
 html(ng-app="myApp")
   head
     meta(charset='utf8')
-    //base(href='/minisms/')
-    base(href='/')
+    base(href='/jsminiCms')
+    //base(href='/')
     title Verajulia - a new MEAN stack based CMS
     link(rel='stylesheet', href='/css/bootstrap.css')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
@@ -11,13 +11,4 @@ html(ng-app="myApp")
     link(rel='stylesheet', href='/css/app.css')
   body
     include menuFront
-
-    div.container
-      div.row
-        div.span12
-            ng-view
-
-      div.footer
-        p &copy; Verajulia 2014
-
     include scripts

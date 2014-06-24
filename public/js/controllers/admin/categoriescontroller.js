@@ -77,7 +77,8 @@
             }
             compileFactory.compileConfirmOverly( $scope );
         }
-
+      $scope.addItem = function() {
+          $scope.invoice.items.push({id:0, title:0, parent:"", date:""});
 
         /**
          * Categories
