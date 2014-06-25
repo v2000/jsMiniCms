@@ -12,5 +12,17 @@ html(ng-app="myApp")
   body
 
     include menuFront
-    include partials/site/articlesListView
+    //include partials/site/articlesListView
+    
+
+   
+    div.container
+        div.row
+        div.span12
+            ng-view
+
+          div.footer
+        p &copy; Verajulia 2014
+
+
     include scripts

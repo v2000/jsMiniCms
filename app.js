@@ -40,28 +40,6 @@ app.get('/partials/admin/templates/:name',routes.admin);
 
 
 
-// Список
-//app.get('/documents.:format', function(req, res) {
-//});
-
-// Создать
-//app.post('/documents.:format?', function(req, res) {
-//});
-
-// Прочитать
-//app.get('/documents/:id.:format?', function(req, res) {
-//});
-
-// Изменить
-//app.put('/documents/:id.:format?', function(req, res) {
-//});
-
-// Удалить
-//app.del('/documents/:id.:format?', function(req, res) {
-//});
-
-
-
 // Register all schemas (and their api routes)
 require("./libs/autoREST").registerSchemas({
   app: app,
