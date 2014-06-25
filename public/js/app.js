@@ -19,6 +19,10 @@ var app = angular.module('myApp', ["ngResource"]).config([
         templateUrl: "partials/site/showCategory.jade",
         controller: "ArticlesCategoryCtrl"
       })
+        .when("/articles/archive/:id", {
+            templateUrl: "partials/site/showArchive.jade",
+            controller: "ArticlesArchiveCtrl"
+        })
       .otherwise({
         redirectTo: "/articles"
       });

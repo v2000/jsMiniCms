@@ -8,10 +8,8 @@ appAdmin.controller("userscontroller", function($scope,routerFactory) {
          * @type {Object}
          */
         $scope.myObj = {
-            'ID' : 'ID',
-            'Name' : 'Name',
-            'Surname' : 'Surname',
             'Username' : 'Username',
+            'Password' : 'Password',
             'Email' : 'Email',
             'Created' : 'Created',
             'Edit' : 'Edit',

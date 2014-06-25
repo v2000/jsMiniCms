@@ -1,7 +1,8 @@
-appAdmin.controller("AdminCtrl", function($scope, $location, Article, Category) {
+appAdmin.controller("AdminCtrl", function($scope, $location, Article, Category, User) {
 
   $scope.articles = Article.index();
   $scope.categories = Category.index();
+  $scope.users = User.index();
   
   //$scope.category = Category.show({ id: $routeParams.id });
 
@@ -12,6 +13,6 @@ appAdmin.controller("AdminCtrl", function($scope, $location, Article, Category) 
   
   console.log("IT IS controller AdminCtrl")
   $scope.new = function() {
-    $location.path("/articles/new/" + $routeParams.id);
+    $location.path("/admin/admin" + $routeParams.id);
   };
 });

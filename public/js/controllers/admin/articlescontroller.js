@@ -15,7 +15,6 @@ appAdmin.controller("articlescontroller", function($scope, routerFactory, compil
             'ID' : 'ID',
             'Title' : 'Title',
             'Short description' : 'Short description',
-            'Url': 'Url',
             'Category' : 'Category',
             'Created' : 'Created',
             'Edit' : 'Edit',
@@ -42,7 +41,7 @@ appAdmin.controller("articlescontroller", function($scope, routerFactory, compil
                     }
                 }
 
-                n.edit_url = routerFactory.adminUrl('articles/add/'+ n._id);
+                n.edit_url = routerFactory.adminUrl('admin/admin'+ n._id);
                 n.delete_url = routerFactory.serverAdminUrl('articles/delete/'+ n._id);
 
                 return n;
@@ -66,7 +65,7 @@ appAdmin.controller("articlescontroller", function($scope, routerFactory, compil
          */
         routerFactory.http({
             method: 'GET',
-            url:  routerFactory.serverAdminUrl("articles/list")
+            url:  routerFactory.serverAdminUrl("articles/listview")
         }, function(res){
             if( res.data && res.data.length > 0 ){
                 $scope.articles = filter(res.data);
@@ -89,7 +88,7 @@ appAdmin.controller("articlescontroller", function($scope, routerFactory, compil
 
 
         /***
-         * Confirm Delition
+         * Confirm Deletion
          * @param data
          * @return {Array}
          */

@@ -1,7 +1,10 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-  appAdmin.controller("categoriescontroller", function($scope, routerFactory, compileFactory, $location) {
+  appAdmin.controller("categoriescontroller", function($scope,
+                                                       routerFactory,
+                                                       compileFactory,
+                                                       $location) {
 
         $scope.submenu  = [
             {
@@ -139,7 +142,7 @@
          */
         routerFactory.http({
             method: 'GET',
-            url:  routerFactory.serverAdminUrl("categories/list")
+            url:  routerFactory.serverAdminUrl("categories/listview")
         }, function(res){
             if( res.data && res.data.length > 0 ){
                 $scope.categories = filter(res.data);

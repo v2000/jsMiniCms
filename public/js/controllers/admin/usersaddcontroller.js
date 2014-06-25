@@ -1,4 +1,11 @@
-appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, compileFactory, $routeParams, $location) {
+/**
+ * Created by juliarietveld on 25/06/14.
+ */
+appAdmin.controller("usersaddcontroller", function($scope,
+                                                   routerFactory,
+                                                   compileFactory,
+                                                   $routeParams,
+                                                   $location) {
 
 
         /***
@@ -7,8 +14,8 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
          */
         $scope.submenu  = [
             {
-                url : routerFactory.adminUrl('categories'),
-                title : 'Categories',
+                url : routerFactory.adminUrl('users'),
+                title : 'Users',
                 current : false
             }
         ];
@@ -20,31 +27,35 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
          * @type {Object}
          */
 
-        $scope.currentMenu = "categories";
+        $scope.currentMenu = "users";
 
         /**
          * myObj
          * @type {Object}
          */
         $scope.myObj = {
-            'Title' : 'Title',
-            'Submit' : 'Submit',
-            'Select category' : 'Select category'
+            'Username' : 'Username',
+            'Password' : 'Password',
+            'Email' : 'Email',
+            'Created' : 'Created',
+            'Edit' : 'Edit',
+            'Delete' : 'Delete',
+            'No records to display' : 'No records to display'
         }
 
         /**
-         * Categories
+         * Users
          * @type {null}
          */
-        $scope.categories = [];
+        $scope.users = [];
 
 
         /**
-         * Categories
+         * Users
          */
         routerFactory.http({
             method: 'GET',
-            url:  routerFactory.serverAdminUrl("categories/listview")
+            url:  routerFactory.serverAdminUrl("users/listview")
         }, function(res){
             $scope.categories = res.data;
         });
@@ -59,28 +70,28 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
             /**
              * It cannot be subcategory of itself
              */
-            $scope.$watch("categories", function(cn){
+            $scope.$watch("users", function(cn){
                 angular.forEach(cn,function(val, index){
                     if( val._id === $routeParams.id ){
-                        $scope.categories.splice(index,1);
+                        $scope.users.splice(index,1);
                     }
                 });
             });
 
 
             /**
-             * Get one category
+             * Get one user
              */
             routerFactory.http({
                 method: 'GET',
-                url:  routerFactory.serverAdminUrl("categories/add"),
+                url:  routerFactory.serverAdminUrl("users/add"),
                 params: ({id : $routeParams.id})
             }, function(res){
 
                 if( angular.isDefined( res.error ) && res.error === false ){
                     $scope.edit = res.data;
                 }else{
-                    $scope.title = "Ups something is wrong :)";
+                    $scope.title = "Oops something is wrong :)";
                     $scope.close_button_title = "Close";
                     $scope.errors = [];
                     $scope.close = function(){
@@ -95,7 +106,7 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
              * On edit select selected id
              */
             $scope.$watch("edit", function(n){
-                angular.forEach($scope.categories,function(val){
+                angular.forEach($scope.users,function(val){
                     if(val._id === Number(n.parent_category)){
                         val.selected = "selected";
                     }else{
@@ -103,7 +114,7 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
                     }
 
                 });
-                $scope.$watch("categories", function(cn){
+                $scope.$watch("users", function(cn){
                     angular.forEach(cn,function(cnv){
                         if(cnv._id === Number(n.parent_category)){
                             cnv.selected = "selected";
@@ -121,11 +132,11 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
 
 
         /**
-         * Save category
+         * Save user
          */
         $scope.save = function(){
-            var form = document.getElementById("add_category"),
-                title = form.querySelector('input[name="title"]'),
+            var form = document.getElementById("add_user"),
+                title = form.querySelector('input[name="username"]'),
 
                 parent_category = form.querySelector('[name="parent_category"]'),
                 id = form.querySelector('input[name="id"]');
@@ -141,14 +152,14 @@ appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, 
              * Router
              */
             routerFactory.http({
-                url:  routerFactory.serverAdminUrl("categories/add"),
-                data: ({title : title.value, id: id.value })
+                url:  routerFactory.serverAdminUrl("users/add"),
+                data: ({username : username.value, id: id.value })
             }, function(res) {
 
                 if( angular.isDefined( res.error ) && res.error === false ){
-                    $location.url(routerFactory.adminUrl('categories/listview'));
+                    $location.url(routerFactory.adminUrl('users/listview'));
                 }else{
-                    $scope.title = "Ups something is wrong :)";
+                    $scope.title = "Oops something is wrong :)";
                     $scope.close_button_title = "Close";
                     $scope.errors = res.myObj;
                     $scope.close = function(){

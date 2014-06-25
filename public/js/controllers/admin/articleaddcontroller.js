@@ -1,13 +1,16 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-appAdmin.controller("articleaddcontroller", function($scope,$location,  routerFactory, compileFactory, $routeParams) {
+appAdmin.controller("articleaddcontroller", function($scope,$location,
+                                                     routerFactory,
+                                                     compileFactory,
+                                                     $routeParams) {
 
         /***
          * Add class to current menu
          * @type {String}
          */
-        $scope.currentMenu = "articles";
+        $scope.currentMenu = "articlesAdd";
 
         /**
          * Set to null
@@ -23,8 +26,6 @@ appAdmin.controller("articleaddcontroller", function($scope,$location,  routerFa
             'Title' : 'Title',
             'Short description' : 'Short description',
             'Description' : 'Description',
-            'Submit' : 'Submit',
-            'Image' : 'Image',
             'Choose file' : 'Choose file',
             'Select category' : 'Select category',
             'Select' : 'Select'
@@ -47,7 +48,7 @@ appAdmin.controller("articleaddcontroller", function($scope,$location,  routerFa
              */
             routerFactory.http({
                 method: 'GET',
-                url:  routerFactory.serverAdminUrl("articles/one"),
+                url:  routerFactory.serverAdminUrl("admin/templates/articles/editArticle"),
                 params: ({id : $routeParams.id})
             }, function(res){
 
