@@ -26,20 +26,12 @@ div.row
         div.col-md-4
          button.btn.btn-success(ng-click="newArticle()") New Article
          h2 Category
-         ul
-           li: a(href="#") Web development
-           li: a(href="#") Web design
-           li: a(href="#") Mobile development
-           li: a(href="#") Rich Internet Applications
+         
          div(ng-repeat="article in articles")
           p
             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
          h2 Archive
-         ul
-           li: a(href="#") Januari
-           li: a(href="#") Februari
-           li: a(href="#") March
-           li: a(href="#") April
+        
          div(ng-repeat="article in articles")
            p
              a(href="/articles/category/{{article.categoryId}}") {{article.category}}
