@@ -6,7 +6,7 @@ div.row
         div.col-md-8
 
             article(ng-repeat="article in articles")
-                h3 {{ article.title }}
+                a(href="/articles/{{article._id}}") {{article.title}}
                 p Category: {{ article.category }}
                 p {{ article.date }}
                 p {{ article.author }}

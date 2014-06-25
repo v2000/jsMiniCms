@@ -1,12 +1,11 @@
-
-      a.btn(href="/site/articleListView") Back
-
+h3 AAAAAAAAAA
 div#menu_wrapper(ng-init="menu_template_src = 'views/menuFront'" ng-include src="menu_template_src")
-    div.container
-        h2 {{article.title}}
-        h4 Author: {{article.author}}
-        p Date: {{article.date}}
-        span {{article.category}}
-        div.articlebody
-            p {{article.body}}
+div.container
+    h2 {{article.title}}
+    h4 Author: {{article.author}}
+    p Date: {{article.date}}
+    span {{article.category}}
+    div.articlebody
+       p {{article.body}}
+a.btn(href="/site/articleListView") Back
 
