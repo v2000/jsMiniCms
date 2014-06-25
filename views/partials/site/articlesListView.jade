@@ -5,24 +5,13 @@ div.row
         p Number of categories: {{categories.length}}
         div.col-md-8
 
-            article(ng-repeat="item in articles")
+            article(ng-repeat="article in articles")
                 h3 {{ article.title }}
                 p Category: {{ article.category }}
                 p {{ article.date }}
                 p {{ article.author }}
                 p {{ article.smallbody }}
-            article
-                h3 First article
-                p Category: Web development
-                p 04-12-2014
-                p James Bond
-                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            article
-                h3 Second article
-                p Category: Web development
-                p 04-12-2014
-                p Mary Bond
-                p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                
         div.col-md-4
          button.btn.btn-success(ng-click="newArticle()") New Article
          h2 Category
