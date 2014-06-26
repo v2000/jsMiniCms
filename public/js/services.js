@@ -35,3 +35,13 @@ appAdmin.factory("User", function($resource, $http) {
 
     return resource;
 });
+
+app.factory("ArticleCategory", function($resource, $http) {
+  var resource = $resource("/api/articles/category/:id", { id: "@_id" },
+    {
+      'index':   { method: 'GET', isArray: true },
+    }
+  );
+
+  return resource;
+});
