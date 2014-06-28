@@ -2,8 +2,8 @@
 var express = require('express');
 var routes = require('./routes');
 var moment = require('moment');
-moment().format();
-
+moment().format('YYYY MM DD');
+//var moment = module.exports = moment();
 var app = module.exports = express();
 
 app.configure(function(){
