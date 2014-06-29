@@ -8,11 +8,12 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
 
 //admin
       .when("/admin", {
-        templateUrl: "partials/admin/templates/admin",
+        templateUrl: "partials/admin/templates/admin.jade",
+        //templateUrl: "partials/site/articlesListView.jade",
         controller: "AdminCtrl"
       })
       .when("/admin/articles/listview", {
-        templateUrl: "partials/admin/templates/articles/listview",
+        templateUrl: "partials/admin/templates/articles/listview.jade",
         controller: "articlescontroller"
       })
       /*.when("/admin", {
@@ -20,39 +21,39 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
         controller: "LoginCtrl"
       })*/
       .when("/admin/articles/editArticle", {
-        templateUrl: "partials/admin/templates/articles/editArticle",
+        templateUrl: "partials/admin/templates/articles/editArticle.jade",
         controller: "articleaddcontroller"
       })
         .when("/admin/articles/add", {
-            templateUrl: "partials/admin/templates/articles/add",
+            templateUrl: "partials/admin/templates/articles/add.jade",
             controller: "articleaddcontroller"
         })
         .when("/admin/articles/delete", {
-            templateUrl: "partials/admin/templates/articles/delete",
+            templateUrl: "partials/admin/templates/articles/delete.jade",
             controller: "articleaddcontroller"
         })
       .when("admin/templates/categories", {
-        templateUrl: "partials/admin/templates/categories/listview",
+        templateUrl: "partials/admin/templates/categories/listview.jade",
         controller: "categoriescontroller"
       })
         .when("admin/templates/categories/add", {
-            templateUrl: "partials/admin/templates/categories/add",
+            templateUrl: "partials/admin/templates/categories/add.jade",
             controller: "categoriesaddcontroller"
         })
         .when("/admin/categories/delete", {
-            templateUrl: "partials/admin/templates/categories/delete",
+            templateUrl: "partials/admin/templates/categories/delete.jade",
             controller: "categoriesaddcontroller"
         })
         .when("admin/users/listview", {
-            templateUrl: "partials/admin/templates/users/listview",
+            templateUrl: "partials/admin/templates/users/listview.jade",
             controller: "userscontroller"
         })
         .when("/admin/users/add", {
-            templateUrl: "partials/admin/templates/users/add",
+            templateUrl: "partials/admin/templates/users/add.jade",
             controller: "articleaddcontroller"
         })
         .when("/admin/users/delete", {
-            templateUrl: "partials/admin/templates/users/delete",
+            templateUrl: "partials/admin/templates/users/delete.jade",
             controller: "articleaddcontroller"
         })
       .otherwise({

@@ -2,21 +2,23 @@ doctype html
 html(ng-app="myAdmin")
   head
     meta(charset='utf8')
-    //base(href='/jsMiniCms/')
+    //base(href='/jsminiCms')
     base(href='/')
     title Verajulia - Admin
     //link(rel='stylesheet', href='/css/bootstrap.css')
     //link(rel='stylesheet', href='/css/app.css')
     //link(rel='stylesheet', href='/css/admincss.css')
   body
+
     include menuAdmin
+    //include partials/site/articlesListView
+   
     div.container
-      div.row
+        div.row
         div.span12
             ng-view
 
-      div.footer
+          div.footer
         p &copy; Verajulia 2014
 
-
-      include scripts
+    include scripts
