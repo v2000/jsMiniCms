@@ -1,15 +1,15 @@
 a.btn(href="/admin") Back
-        h3 Edit Article
+h3 Edit Article
         div#form_container
-           // form#add_article(action={{action_url}} method='POST')
-            //    label Title
-            //        input(type="text" name="title" value="{{edit.title}}")
-            //    label Select category
-            //        select(name="category")
-            //            option Select
-            //            option(ng-repeat="item in categories" value="{{category.id}}" selected="{{item.selected}}"){{category.title}}
-            //    label Body
-            //        textarea(name="body content" cols="50" rows="10"){{edit.body}}
+            form#add_article
+                label Title
+                    input(type="text" name="title" value="{{edit.title}}")
+                label Select category
+                    select(name="category")
+                        option Select
+                        option(ng-repeat="category in categories" value="{{category.name}}" selected="{{item.selected}}"){{category.name}}
+                label Body
+                    textarea(name="body content" cols="50" rows="10"){{edit.body}}
 
             button#submit_article(ng-click="save()") Submit
             button.cancel Cancel

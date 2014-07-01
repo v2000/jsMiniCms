@@ -1,9 +1,9 @@
 // Some basic setup
 var express = require('express');
 var routes = require('./routes');
-var moment = require('moment');
-moment().format('YYYY MM DD');
-//var moment = module.exports = moment();
+//var moment = require('moment');
+//moment().format('YYYY MM DD');
+////var moment = module.exports = moment();
 var app = module.exports = express();
 
 app.configure(function(){
@@ -68,5 +68,5 @@ app.listen(3000, function(){
   );
 });
 
-var now = moment();
-console.log("Time NOW:", now);
+//var now = moment();
+//console.log("Time NOW:", now);
