@@ -1,3 +1,0 @@
-/**
- * Created by juliarietveld on 25/06/14.
- */

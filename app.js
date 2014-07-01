@@ -39,10 +39,10 @@ app.get('/admin', routes.adminIndex); // startpoint for admin users
 
 app.get('/partials/site/:name', routes.site);
 app.get('/partials/admin/templates/:name',routes.admin);
-//app.get('/partials/admin/templates/archive/:name',routes.admin);
-//app.get('/partials/admin/templates/articles/:name',routes.admin);
-//app.get('/partials/admin/templates/categories/:name',routes.admin);
-//app.get('/partials/admin/templates/users/:name',routes.admin);
+app.get('/partials/admin/templates/archive/:name',routes.adminArchive);
+app.get('/partials/admin/templates/articles/:name',routes.adminArticles);
+app.get('/partials/admin/templates/categories/:name',routes.adminCategories);
+app.get('/partials/admin/templates/users/:name',routes.adminUsers);
 
 
 
