@@ -1,5 +1,5 @@
 appAdmin.controller("ArticleEditCtrl", function($scope, $location, Article, Category, User) {
-
+//It will be controller for edit article
   $scope.articles = Article.update();
   $scope.categories = Category.index();
   $scope.users = User.index();
