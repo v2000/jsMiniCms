@@ -1,34 +1,40 @@
 // Some basic setup
 var express = require('express');
-var routes = require('./routes');
-var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
+//var routes = require('./routes');
+//var localStrategy = require('passport-local').Strategy;
 //var moment = require('moment');
 //moment().format('YYYY MM DD');
 ////var moment = module.exports = moment();
 var app = module.exports = express();
 
+var passport = require('passport');
+var flash    = require('connect-flash');
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
+
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  //app.set('view engine', 'html');
+
+  // set up our express application
+  app.use(morgan('dev')); // log every request to the console
+  app.use(cookieParser()); // read cookies (needed for auth)
+  //app.use(bodyParser()); // get information from html forms
   app.use(express.bodyParser());
 
+  // required for passport
+  app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
   app.use(passport.initialize());
-  app.use(passport.session());
-
-  //about session
-  //app.use(express.cookieDecoder());
-  //app.use(express.session());
-  //Теперь в HTTP-обработчиках будет доступна переменная req.session:
-
-  //app.get('/item', function(req, res) {
-  //req.session.message = 'Hello World';  
-  //});
+  app.use(passport.session()); // persistent login sessions
+  app.use(flash()); // use connect-flash for flash messages stored in session
 
   app.use(express.methodOverride());
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
+
+  require('./routes')(app.passport);
 });
 
 app.configure('development', function(){
@@ -39,10 +45,6 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-passport.use(new localStrategy(function(user, password, done){
-
-  
-}));
 // Main (non-ajax/REST routes)
 app.get('/', routes.index); // startpoint for normal users
 app.get('/admin', routes.adminIndex); // startpoint for admin users
