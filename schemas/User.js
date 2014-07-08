@@ -3,15 +3,16 @@ exports.schema = {
   firstname: String,
   lastname: String,
   role: String,
-  password: {
-    type: String,
-    unique: true
-  },
   email: String,
   username: {
     type: String,
-    unique: true
-  }
+    unique: true,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
 };
 
 // Require autoREST-library
