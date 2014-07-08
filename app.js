@@ -1,11 +1,9 @@
 // Some basic setup
 var express = require('express');
 var routes = require('./routes');
-var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
 //var moment = require('moment');
 //moment().format('YYYY MM DD');
-////var moment = module.exports = moment();
+//var moment = module.exports = moment();
 var app = module.exports = express();
 
 app.configure(function(){
@@ -13,10 +11,6 @@ app.configure(function(){
   app.set('view engine', 'jade');
   //app.set('view engine', 'html');
   app.use(express.bodyParser());
-
-  app.use(passport.initialize());
-  app.use(passport.session());
-
   //about session
   //app.use(express.cookieDecoder());
   //app.use(express.session());
@@ -39,10 +33,6 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-passport.use(new localStrategy(function(user, password, done){
-
-  
-}));
 // Main (non-ajax/REST routes)
 app.get('/', routes.index); // startpoint for normal users
 app.get('/admin', routes.adminIndex); // startpoint for admin users
