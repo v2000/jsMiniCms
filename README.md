@@ -1,4 +1,4 @@
-minisms
+minicms
 =======
 
-small sms on NodeJs, mongoDb, mongoose, AngularJs
+small cms on NodeJs, mongoDb, mongoose, AngularJs

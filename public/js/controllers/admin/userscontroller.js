@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-appAdmin.controller("userscontroller", function($scope,routerFactory) {
+app00.controller("userscontroller", function($scope,routerFactory) {
 
         /**
          * myObj

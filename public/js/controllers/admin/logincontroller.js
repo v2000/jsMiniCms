@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-appAdmin.controller("logincontroller", function($scope, routerFactory, compileFactory) {
+app00.controller("logincontroller", function($scope, routerFactory, compileFactory) {
 
         $scope.translations = {
             'Username' : 'Username',

@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-  appAdmin.controller("categoriescontroller", function($scope,
+  app00.controller("categoriescontroller", function($scope,
                                                        routerFactory,
                                                        compileFactory,
                                                        $location) {

@@ -1,4 +1,4 @@
-app.controller("ArticlesCategoryCtrl", function($scope, $routeParams, $location, ArticleCategory, Category) {
+app00.controller("ArticlesCategoryCtrl", function($scope, $routeParams, $location, ArticleCategory, Category) {
 
   $scope.category = Category.show({ id: $routeParams.id });
 

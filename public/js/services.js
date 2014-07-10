@@ -1,4 +1,4 @@
-app.factory("Article", function($resource, $http) {
+app00.factory("Article", function($resource, $http) {
   var resource = $resource("/api/articles/:id", { id: "@_id" },
     {
       'index':   { method: 'GET', isArray: true },
@@ -11,7 +11,7 @@ app.factory("Article", function($resource, $http) {
 });
 
 
-app.factory("Category", function($resource, $http) {
+app00.factory("Category", function($resource, $http) {
   var resource = $resource("/api/categories/:id", { id: "@_id" },
     {
       'index':   { method: 'GET', isArray: true },
@@ -23,7 +23,7 @@ app.factory("Category", function($resource, $http) {
   return resource;
 });
 
-appAdmin.factory("User", function($resource, $http) {
+app00.factory("User", function($resource, $http) {
     var resource = $resource("/api/user/:id", { id: "@_id" },
         {
 
@@ -36,7 +36,7 @@ appAdmin.factory("User", function($resource, $http) {
     return resource;
 });
 
-app.factory("ArticleCategory", function($resource, $http) {
+app00.factory("ArticleCategory", function($resource, $http) {
   var resource = $resource("/api/articles/category/:id", { id: "@_id" },
     {
       'index':   { method: 'GET', isArray: true },
