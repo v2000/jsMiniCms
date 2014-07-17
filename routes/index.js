@@ -3,7 +3,7 @@ module.exports = function(app, passport) {
   // show the home page (will also have our login links)
   app.get('/admin', function(req, res) {
     //res.render('adminLayout');
-    res.render('partials/admin/templates/admin');
+    res.render('partials/admin/templates/login');
   });
 
   // =====================================
