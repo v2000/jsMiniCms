@@ -148,8 +148,12 @@ function regSchema(schemaName){
   console.log("Registrering schema",schemaName);
   var i, s = require("../schemas/" + schemaName);
   var schema =  mongoose.Schema(s.schema);
+   console.log(s.schema);
+  console.log("s.methods",s.methods);
+
   for(i in s.methods){
     schema.methods[i] = s.methods[i];
+
     console.log("Registering method",schemaName + '.' + i);
   }
   models[schemaName] = mongoose.model(schemaName,schema);
