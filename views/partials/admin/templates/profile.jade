@@ -1,7 +1,9 @@
 include menuAdmin
 div.row
     div.container
-        h3 Welcome, {{user.email}}
+        h3 Welcome, #{user.email}
+        //-if(user.email)
+        //  div#note #{user.email}
         table.statistics
             h4 Your statistics
             thead
@@ -12,3 +14,4 @@ div.row
             tr(no-repeat="items in categories")
             tr(ng-repeat="items in users")
             tr No records to display
+               

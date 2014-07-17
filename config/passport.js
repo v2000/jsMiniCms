@@ -29,6 +29,7 @@ module.exports = function(passport) {
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         console.log("passport.serializeUser");
+        console.log("user._id", user._id);
         done(null, user._id);
     });
 
@@ -83,8 +84,8 @@ module.exports = function(passport) {
                 // all is well, return user
                 else
                 {
-                    console.log("Allright, return user");
-                    console.log("user=======", user);
+                    console.log("All right, return user");
+                    console.log("user   ", user);
                     return done(null, user);
                 }
                   

@@ -1,10 +1,12 @@
-app00.controller("ProfileCtrl", function($scope, $location, Article, Category) {
+app00.controller("ProfileCtrl", function($scope, $rootScope, $location, Article, Category, user) {
+
+  $rootScope.currentUser
 
   $scope.articles = Article.index();
   $scope.categories = Category.index();
   //$scope.users = user.index();
-  console.log("user.email",user.email);
-  $scope.user = user;
+  console.log(" $rootScope.currentUser", $rootScope.currentUser);
+  $scope.user =  $rootScope.currentUser;
   //$scope.category = Category.show({ id: $routeParams.id });
 
   //$scope.articles = ArticleCategory.index({ id: $routeParams.id });

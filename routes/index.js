@@ -62,6 +62,7 @@ module.exports = function(app, passport) {
       res.render('partials/admin/templates/profile', {
       user : req.user // get the user out of session and pass to template
     });
+      
   });
   // =====================================
   // LOGOUT ==============================
