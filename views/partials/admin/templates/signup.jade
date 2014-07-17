@@ -3,8 +3,8 @@ include menuLogin
 //	div#note #{message}
 div#login_container
 	
-	form#login(action="/admin" method="post") 
-			label Username:
+	form#login(action="/signup" method="post") 
+			label E-mail:
 				div#input
 					input(type="text" name="email" placeholder=" Enter your e-mail")
 												
@@ -12,5 +12,8 @@ div#login_container
 				div#input
 					input(type="text" name="password" placeholder=" Enter your password")
 
-			button(type="submit" ng-click="login()") Log in
-		
+			//button(type="submit" ng-click="signup()") Signeup
+			button(type="submit") Signup
+
+	p Already have an account? 
+		a(href="/login") Login

@@ -1,4 +1,4 @@
-include menuAdmin
+include menuLogin
 div.row
     div.container
         h3 Welcome, {{user.name}}
@@ -12,3 +12,7 @@ div.row
             tr(no-repeat="items in categories")
             tr(ng-repeat="items in users")
             tr No records to display
+
+    a(href="/login") Login 
+    br
+    a(href="/logout") Logout
