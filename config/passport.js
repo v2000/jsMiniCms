@@ -84,6 +84,7 @@ module.exports = function(passport) {
                 else
                 {
                     console.log("Allright, return user");
+                    console.log("user=======", user);
                     return done(null, user);
                 }
                   

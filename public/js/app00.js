@@ -27,7 +27,7 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
       //admin
       .when("/admin", {
         //templateUrl: "partials/admin/templates/login.jade",
-        templateUrl: "adminLayout.jade",
+        templateUrl: "partials/admin/templates/login.jade",
         //controller: "AdminCtrl"
       })
       .when("/signup", {
@@ -37,6 +37,10 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
       .when("/login", {
         templateUrl: "partials/admin/templates/login.jade",
         //controller: "AdminCtrl"
+      })
+      .when("/admin/profile", {
+        templateUrl: "partials/admin/templates/profile.jade",
+        controller: "ProfileCtrl"
       })
       .when("/admin/articles/listview", {
         templateUrl: "partials/admin/templates/articles/listview.jade",
