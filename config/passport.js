@@ -1,15 +1,19 @@
-
-
 // load all the things we need
 var mongoose = require('mongoose');
+console.log("PASSPORT.JS");
 var LocalStrategy    = require('passport-local').Strategy;
-//var FacebookStrategy = require('passport-facebook').Strategy;
-//var TwitterStrategy  = require('passport-twitter').Strategy;
-//var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
-var User       = require('../schemas/User');
-var UserMod=mongoose.model ('User');
+var User       = require('../schemas/user');
+
+
+
+
+var UserMod=mongoose.model ('user');
+
+
+
+
 
 // load the auth variables
 //var configAuth = require('./auth'); // use this one for testing
@@ -23,14 +27,16 @@ module.exports = function(passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
-    passport.serializeUser(function(User, done) {
-        done(null, User._id);
+    passport.serializeUser(function(user, done) {
+        console.log("passport.serializeUser");
+        done(null, user._id);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function(_id, done) {
-        UserMod.findById(_id, function(err, User) {
-            done(err, User);
+    passport.deserializeUser(function(id, done) {
+        console.log("passport.deserializeUser");
+        User.findById(id, function(err, user) {
+            done(err, user);
         });
     });
 
@@ -44,6 +50,7 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
+        console.log("come to function");
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
@@ -52,18 +59,34 @@ module.exports = function(passport) {
             UserMod.findOne({ 'email' :  email }, function(err, user) {
                 // if there are any errors, return the error
                 if (err)
+                {
+                    console.log("error");
                     return done(err);
+                }
+                    
 
                 // if no user is found, return the message
-                if (!user)
+                if (!user) 
+                {
+                    console.log("No user found.");
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
+                }
+                    
 
                 if (!user.validPassword(password))
+                {
+                    console.log("Oops! Wrong password.");
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+                }
+                    
 
                 // all is well, return user
                 else
+                {
+                    console.log("Allright, return user");
                     return done(null, user);
+                }
+                  
             });
         });
 
@@ -86,7 +109,6 @@ module.exports = function(passport) {
         process.nextTick(function() {
             // if the user is not already logged in:
             if (!req.user) {
-                console.log("if the user is not already logged in:");
                 UserMod.findOne({ 'email' :  email }, function(err, user) {
                     // if there are any errors, return the error
                     if (err)
@@ -98,10 +120,10 @@ module.exports = function(passport) {
                     } else {
 
                         // create the user
-                        var newUser            = new UserMod();
+                        var newUser            = new User();
 
-                        newUser.email    = email;
-                        newUser.password = newUser.generateHash(password);
+                        newUser.local.email    = email;
+                        newUser.local.password = newUser.generateHash(password);
 
                         newUser.save(function(err) {
                             if (err)
@@ -113,25 +135,23 @@ module.exports = function(passport) {
 
                 });
             // if the user is logged in but has no local account...
-            } else if ( !req.user.email ) {
-                        console.log("if the user is logged in but has no local account...")
+            } else if ( !req.user.local.email ) {
                 // ...presumably they're trying to connect a local account
-            //    var user            = req.user;
-            //    user.email    = email;
-            //    user.password = user.generateHash(password);
-            //    user.save(function(err) {
-            //        if (err)
-            //            throw err;
-            //        return done(null, user);
-            //    });
+                var user            = req.user;
+                user.local.email    = email;
+                user.local.password = user.generateHash(password);
+                user.save(function(err) {
+                    if (err)
+                        throw err;
+                    return done(null, user);
+                });
             } else {
-                 console.log("user is logged in and already has a local account.");
                 // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
                 return done(null, req.user);
             }
 
         });
 
-    }));
-
+    }));    
+    
 };

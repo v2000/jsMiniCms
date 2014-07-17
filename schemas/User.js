@@ -14,7 +14,7 @@ exports.methods = {
     },
     validPassword: function (password) {
          console.log("Method validPassword");
-         return bcrypt.compareSync(password, this.local.password);
+         return bcrypt.compareSync(password, this.password);
     }
 };
 
@@ -24,5 +24,5 @@ var autoREST = require("../libs/autoREST");
 
 // API routes for User
 var routes = exports.routes = autoREST.buildRoutes(
-  "User", "users:ALL"
+  "user", "users:ALL"
 );
