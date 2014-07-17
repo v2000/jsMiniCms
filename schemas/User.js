@@ -1,19 +1,23 @@
 // Schema for User
+var bcrypt   = require('bcrypt-nodejs');
+
 exports.schema = {
-  firstname: String,
-  lastname: String,
-  role: String,
-  email: String,
-  username: {
-    type: String,
-    unique: true,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
+        email        : String,
+        password     : String,
 };
+
+
+exports.methods = {
+    generateHash: function (password) {
+        console.log("Method generateHash");
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+    },
+    validPassword: function (password) {
+         console.log("Method validPassword");
+         return bcrypt.compareSync(password, this.local.password);
+    }
+};
+
 
 // Require autoREST-library
 var autoREST = require("../libs/autoREST");
