@@ -1,7 +1,7 @@
 app00.controller("LoginCtrl", function($scope, $location) {
   
 
-   $scope.login = function() {
-   // $location.path("/articles/");
+   $scope.signup = function() {
+    //$location.path("/articles/");
   };
 });

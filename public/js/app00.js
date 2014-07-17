@@ -26,12 +26,21 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
 
       //admin
       .when("/admin", {
+        //templateUrl: "partials/admin/templates/login.jade",
+        templateUrl: "adminLayout.jade",
+        //controller: "AdminCtrl"
+      })
+      .when("/signup", {
+        templateUrl: "partials/admin/templates/signup.jade",
+        //controller: "AdminCtrl"
+      })
+      .when("/login", {
         templateUrl: "partials/admin/templates/login.jade",
-        controller: "AdminCtrl"
+        //controller: "AdminCtrl"
       })
       .when("/admin/articles/listview", {
-        //templateUrl: "partials/admin/templates/articles/listview.jade",
-        templateUrl: "partials/admin/templates/articles/editArticle.jade",
+        templateUrl: "partials/admin/templates/articles/listview.jade",
+        //templateUrl: "partials/admin/templates/articles/editArticle.jade",
         controller: "ArticleEditCtrl"
         //controller: "articlescontroller"
       })
