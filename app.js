@@ -1,50 +1,22 @@
-// Some basic setup
+/ Some basic setup
 var express = require('express');
+var app = module.exports = express();
+
 //var routes = require('./routes');
 
 //var moment = require('moment');
 //moment().format('YYYY MM DD');
 //var moment = module.exports = moment();
-var app = module.exports = express();
 var passport = require('passport');
 var flash    = require('connect-flash');
 
+//var morgan       = require('morgan');
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-app.configure(function(){
 
-  // set up our express application
-  app.use(express.logger('dev')); // log every request to the console
-  app.use(express.cookieParser()); // read cookies (needed for auth)
-  app.use(express.bodyParser()); // get information from html forms
-
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-
-  // required for passport
-  app.use(express.session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-  app.use(passport.initialize());
-  app.use(passport.session()); // persistent login sessions
-  app.use(flash()); // use connect-flash for flash messages stored in session
-
-  app.use(express.bodyParser());
-
-  app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
-
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
 
 // Register all schemas (and their api routes)
 require("./libs/autoREST").registerSchemas({
@@ -53,7 +25,34 @@ require("./libs/autoREST").registerSchemas({
   schemas: ["Article", "Category", "User"]
 });
 
+// uncomment this line
+require('./config/passport')(passport); // pass passport for configuration
+
+//app.configure(function(){
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  // set up our express application
+  //app.use(morgan('dev')); // log every request to the console
+  app.use(morgan('dev')); // log every request to the console
+  app.use(cookieParser()); // read cookies (needed for auth)
+  app.use(bodyParser.json()); // get information from html forms
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+  //app.use(express.methodOverride());
+  app.use(express.static(__dirname + '/public'));
+
+  // required for passport
+  // required for passport
+  app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
+  app.use(flash()); // use connect-flash for flash messages st
+  
+  //app.use(app.router);
+//});
+
 // routes ======================================================================
+require('./routes/siteroutes.js')(app); // load our routes and pass in our app and fully configured passport
 require('./routes')(app, passport); // load our routes and pass in our app and fully configured passport
        
 // Main (non-ajax/REST routes)
