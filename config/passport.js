@@ -120,10 +120,10 @@ module.exports = function(passport) {
                     } else {
 
                         // create the user
-                        var newUser            = new User();
+                        var newUser            = new UserMod();
 
-                        newUser.local.email    = email;
-                        newUser.local.password = newUser.generateHash(password);
+                        newUser.email    = email;
+                        newUser.password = newUser.generateHash(password);
 
                         newUser.save(function(err) {
                             if (err)
@@ -135,11 +135,11 @@ module.exports = function(passport) {
 
                 });
             // if the user is logged in but has no local account...
-            } else if ( !req.user.local.email ) {
+            } else if ( !req.user.email ) {
                 // ...presumably they're trying to connect a local account
                 var user            = req.user;
-                user.local.email    = email;
-                user.local.password = user.generateHash(password);
+                user.email    = email;
+                user.password = user.generateHash(password);
                 user.save(function(err) {
                     if (err)
                         throw err;
