@@ -1,4 +1,4 @@
-/ Some basic setup
+// Some basic setup
 var express = require('express');
 var app = module.exports = express();
 
