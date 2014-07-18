@@ -1,7 +1,8 @@
 include menuLogin
-//-if(message)
-//	div#note #{message}
+
 div#login_container
+	-if(message)
+		div#note #{message}
 	
 	form#login(action="/login" method="post") 
 			label Username:
@@ -16,4 +17,6 @@ div#login_container
 	br
 	div Or
 		a(href="/signup")  signup
-		
+
+	
+			

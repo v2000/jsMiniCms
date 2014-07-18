@@ -1,6 +1,7 @@
 include menuAdmin
 div.row
     div.container
+    -if(user.email)
         h3 Welcome, #{user.email}
         //-if(user.email)
         //  div#note #{user.email}
