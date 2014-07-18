@@ -1,7 +1,7 @@
 
 module.exports = function(app, passport) {
   // show the home page (will also have our login links)
-  app.get('/admin', function(req, res) {
+  app.get('/admin', function (req, res) {
     //res.render('adminLayout');
     res.render('partials/admin/templates/login');
   });
@@ -10,7 +10,7 @@ module.exports = function(app, passport) {
   // LOGIN ===============================
   // =====================================
   // show the login form
-  app.get('/login', function(req, res){
+  app.get('/login', function (req, res){
     var name = req.params.name;
   console.log("login", name);
   res.render('partials/admin/templates/login', { message: req.flash('loginMessage') });
@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
   // SIGNUP ==============================
   // =====================================
   // show the signup form
-  app.get('/signup', function(req, res) {
+  app.get('/signup', function (req, res) {
     // render the page and pass in any flash data if it exists
     res.render('partials/admin/templates/signup', { message: req.flash('signupMessage') });
   });
@@ -47,7 +47,7 @@ module.exports = function(app, passport) {
   // we will use route middleware to verify this (the isLoggedIn function)
   
   //app.get('/profile', isLoggedIn, function(req, res) {
-  app.get('/admin/articles/listview', isLoggedIn, function(req, res) {
+  app.get('/admin/articles/listview', isLoggedIn, function (req, res) {
     //res.render('profile.jade', {
       res.render('partials/admin/templates/articles/listview', {
       user : req.user // get the user out of session and pass to template
@@ -57,7 +57,7 @@ module.exports = function(app, passport) {
   //PROFILE
   //=====================================
    //app.get('/profile', isLoggedIn, function(req, res) {
-  app.get('/admin/profile', isLoggedIn, function(req, res) {
+  app.get('/admin/profile', isLoggedIn, function (req, res) {
     //res.render('profile.jade', {
       res.render('partials/admin/templates/profile', {
       user : req.user // get the user out of session and pass to template
@@ -67,7 +67,7 @@ module.exports = function(app, passport) {
   // =====================================
   // LOGOUT ==============================
   // =====================================
-  app.get('/logout', function(req, res) {
+  app.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');
   });

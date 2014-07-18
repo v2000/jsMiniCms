@@ -28,15 +28,15 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
       .when("/admin", {
         //templateUrl: "partials/admin/templates/login.jade",
         templateUrl: "partials/admin/templates/login.jade",
-        //controller: "AdminCtrl"
+        controller: "LoginCtrl"
       })
       .when("/signup", {
         templateUrl: "partials/admin/templates/signup.jade",
-        //controller: "AdminCtrl"
+        controller: "SignupCtrl"
       })
       .when("/login", {
         templateUrl: "partials/admin/templates/login.jade",
-        //controller: "AdminCtrl"
+        controller: "LoginCtrl"
       })
       .when("/admin/profile", {
         templateUrl: "partials/admin/templates/profile.jade",
@@ -45,7 +45,7 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
       .when("/admin/articles/listview", {
         templateUrl: "partials/admin/templates/articles/listview.jade",
         //templateUrl: "partials/admin/templates/articles/editArticle.jade",
-        controller: "ArticleEditCtrl"
+        controller: "ArticleCtrl"
         //controller: "articlescontroller"
       })
       /*.when("/admin", {

@@ -42,7 +42,6 @@ require('./config/passport')(passport); // pass passport for configuration
   app.use(express.static(__dirname + '/public'));
 
   // required for passport
-  // required for passport
   app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions

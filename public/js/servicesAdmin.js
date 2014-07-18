@@ -27,7 +27,7 @@ app00.factory("Category", function($resource, $http) {
   return resource;
 });
 
-app00.factory("User", function($resource, $http) {
+app00.factory("user", function($resource, $http) {
     var resource = $resource("/api/user/:id", { id: "@_id" },
         {
             'create':  { method: 'POST' },
