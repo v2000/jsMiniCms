@@ -4,7 +4,7 @@ div#login_container
 	-if(message)
 		div#note #{message}
 	
-	form#login(action="/login" method="post") 
+	form#login(action="/admin/login" method="post") 
 			label Username:
 				div#input
 					input(type="text" name="email" placeholder=" Enter your e-mail")
@@ -16,7 +16,7 @@ div#login_container
 			button(type="submit" ng-click="login()") Log in
 	br
 	div Or
-		a(href="/signup")  signup
+		a(href="/admin/signup")  signup
 
-	
+//include ../../scripts	
 			

@@ -10,15 +10,15 @@ module.exports = function(app, passport) {
   // LOGIN ===============================
   // =====================================
   // show the login form
-  app.get('/login', function (req, res){
+  app.get('/admin/login', function (req, res){
   res.render('partials/admin/templates/login', { message: req.flash('loginMessage') });
 }); // startpoint for admin users
 
  // process the login form
-  app.post('/login', passport.authenticate('local-login', {
+  app.post('/admin/login', passport.authenticate('local-login', {
     //successRedirect : 'partials/admin/templates/articles/listview', // redirect to the secure profile section
-    successRedirect : '/profile', // redirect to the secure profile section
-    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    successRedirect : '/admin/profile', // redirect to the secure profile section
+    failureRedirect : '/admin/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
 
@@ -26,15 +26,15 @@ module.exports = function(app, passport) {
   // SIGNUP ==============================
   // =====================================
   // show the signup form
-  app.get('/signup', function (req, res) {
+  app.get('/admin/signup', function (req, res) {
     // render the page and pass in any flash data if it exists
     res.render('partials/admin/templates/signup', { message: req.flash('signupMessage') });
   });
 
   // process the signup form
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/profile', // redirect to the secure profile section
-    failureRedirect : '/signup', // redirect back to the signup page if there is an error
+  app.post('/admin/signup', passport.authenticate('local-signup', {
+    successRedirect : '/admin/profile', // redirect to the secure profile section
+    failureRedirect : '/admin/signup', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
 
@@ -54,7 +54,7 @@ module.exports = function(app, passport) {
   //PROFILE
   //=====================================
    //app.get('/profile', isLoggedIn, function(req, res) {
-  app.get('/profile', isLoggedIn, function (req, res) {
+  app.get('/admin/profile', isLoggedIn, function (req, res) {
     //res.render('profile.jade', {
       res.render('partials/admin/templates/profile', {
       user : req.user // get the user out of session and pass to template
@@ -64,7 +64,7 @@ module.exports = function(app, passport) {
   // =====================================
   // LOGOUT ==============================
   // =====================================
-  app.get('/logout', function (req, res) {
+  app.get('/admin/logout', function (req, res) {
     req.logout();
     res.redirect('/');
   });
@@ -118,5 +118,5 @@ function isLoggedIn(req, res, next) {
     return next();
 
   // if they aren't redirect them to the home page
-  res.redirect('/login');
+  res.redirect('/admin/login');
 }
