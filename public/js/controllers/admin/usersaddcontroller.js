@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 25/06/14.
  */
-app00.controller("usersaddcontroller", function($scope,
+appAdmin.controller("usersaddcontroller", function($scope,
                                                    routerFactory,
                                                    compileFactory,
                                                    $routeParams,

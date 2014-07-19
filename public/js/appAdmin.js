@@ -1,5 +1,5 @@
 // Declare app level module which depends on services 
-var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
+var appAdmin = angular.module('myAdmin', ['ngResource']).config([
   '$routeProvider',
   '$locationProvider',
   function($routeProvider, $locationProvider) {
@@ -7,20 +7,22 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
     $routeProvider
 
 //admin
-      .when("/admin", {
-        templateUrl: "partials/admin/templates/login.jade",
-        controller: "AdminCtrl"
-      })
-      .when("/admin/articles/listview", {
-        //templateUrl: "partials/admin/templates/articles/listview.jade",
-        templateUrl: "partials/admin/templates/articles/editArticle.jade",
-        controller: "ArticleEditCtrl"
-        //controller: "articlescontroller"
-      })
-      /*.when("/admin", {
+      .when('/login', {
         templateUrl: "partials/admin/templates/login.jade",
         controller: "LoginCtrl"
-      })*/
+      })
+       .when("/signup", {
+        templateUrl: "partials/admin/templates/signup.jade",
+        controller: "SignupCtrl"
+      })
+      .when("/profile", {
+        templateUrl: "partials/admin/templates/profile.jade",
+        controller: "ProfileCtrl"
+      })
+      .when("/admin/articles/listview", {
+        templateUrl: "partials/admin/templates/articles/editArticle.jade",
+        controller: "ArticleEditCtrl"
+      })
       .when("/admin/articles/editArticle", {
         templateUrl: "partials/admin/templates/articles/editArticle.jade",
         controller: "articleaddcontroller"
@@ -58,7 +60,7 @@ var appAdmin = angular.module('myAdmin', ["ngResource"]).config([
             controller: "articleaddcontroller"
         })
       .otherwise({
-        redirectTo: "/articles"
+        redirectTo: "/login"
       });
     }
 ]);

@@ -25,7 +25,7 @@ var app00 = angular.module('myApp', ["ngResource"]).config([
         })
 
       //admin
-      .when("/admin", {
+      .when("/login", {
         //templateUrl: "partials/admin/templates/login.jade",
         templateUrl: "partials/admin/templates/login.jade",
         controller: "LoginCtrl"

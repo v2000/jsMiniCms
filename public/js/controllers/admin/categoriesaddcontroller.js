@@ -1,4 +1,4 @@
-app00.controller("categoriesaddcontroller", function($scope,  routerFactory, compileFactory, $routeParams, $location) {
+appAdmin.controller("categoriesaddcontroller", function($scope,  routerFactory, compileFactory, $routeParams, $location) {
 
 
         /***

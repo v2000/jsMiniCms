@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
- app00.controller("errorcontroller", function($scope) {
+ appAdmin.controller("errorcontroller", function($scope) {
         $scope.translations = {
             'Error: 404' : 'Error: 404',
             'Something went terribly wrong, but most likely it is not your fault.' : 'Something went terribly wrong, but most likely it is not your fault.',

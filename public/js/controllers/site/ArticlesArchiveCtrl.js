@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 25/06/14.
  */
-app00.controller("ArticlesArchiveCtrl", function($scope, $routeParams, $location, ArticleArchive, Archive) {
+appSite.controller("ArticlesArchiveCtrl", function($scope, $routeParams, $location, ArticleArchive, Archive) {
 
     $scope.archive = Archive.show({ id: $routeParams.date });
 

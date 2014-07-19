@@ -1,4 +1,4 @@
-app00.factory("Article", function($resource, $http) {
+appAdmin.factory("Article", function($resource, $http) {
   var resource = $resource("/api/articles/:id", { id: "@_id" },
     {
       'create':  { method: 'POST' },
@@ -13,7 +13,7 @@ app00.factory("Article", function($resource, $http) {
 });
 
 
-app00.factory("Category", function($resource, $http) {
+appAdmin.factory("Category", function($resource, $http) {
   var resource = $resource("/api/categories/:id", { id: "@_id" },
     {
       'create':  { method: 'POST' },
@@ -27,7 +27,7 @@ app00.factory("Category", function($resource, $http) {
   return resource;
 });
 
-app00.factory("user", function($resource, $http) {
+appAdmin.factory("user", function($resource, $http) {
     var resource = $resource("/api/user/:id", { id: "@_id" },
         {
             'create':  { method: 'POST' },

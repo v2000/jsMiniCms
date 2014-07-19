@@ -1,4 +1,4 @@
-app00.controller("adminmenucontroller", function($scope,  routerFactory, compileFactory, $location) {
+appAdmin.controller("adminmenucontroller", function($scope,  routerFactory, compileFactory, $location) {
         /**
          * Whatever user click check current session
          */

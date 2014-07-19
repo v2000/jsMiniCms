@@ -1,5 +1,5 @@
 // Declare app level module which depends on services 
-var app = angular.module('myApp', ["ngResource"]).config([
+var appSite = angular.module('myApp', ["ngResource"]).config([
   '$routeProvider',
   '$locationProvider',
   function($routeProvider, $locationProvider) {

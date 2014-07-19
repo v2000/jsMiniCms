@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="myApp")
+html(ng-app="myAdmin")
   head
     meta(charset='utf8')
     //base(href='/jsminiCms')
@@ -11,14 +11,13 @@ html(ng-app="myApp")
   body
 
     //include menuAdmin
-    include menuLogin
+    //include menuLogin
     //include partials/site/articlesListView
-    //include partials/admin/templates/signup
+    //include partials/admin/templates/login
    
     div.container
         div.row
         div.span12
-           
             ng-view
 
           div.footer

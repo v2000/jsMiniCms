@@ -1,3 +1,3 @@
-app00.controller("LoginCtrl", function($scope, $location) {
+appAdmin.controller("LoginCtrl", function($scope, $location) {
   
 });

@@ -1,7 +1,7 @@
 /**
  * Created by juliarietveld on 11/06/14.
  */
-app00.controller("articleaddcontroller", function($scope,$location,
+appAdmin.controller("articleaddcontroller", function($scope,$location,
                                                      routerFactory,
                                                      compileFactory,
                                                      $routeParams) {

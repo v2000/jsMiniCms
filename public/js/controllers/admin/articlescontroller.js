@@ -2,7 +2,7 @@
  * Created by juliarietveld on 11/06/14.
  */
 
-app00.controller("articlescontroller", function($scope, routerFactory, compileFactory, $location) {
+appAdmin.controller("articlescontroller", function($scope, routerFactory, compileFactory, $location) {
 
 
 
