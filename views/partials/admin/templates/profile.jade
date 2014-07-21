@@ -19,9 +19,5 @@ div.row
             tr(ng-repeat="items in users")
             tr No records to display
                
-    div YOUR E-MAIL IS {{user}}
-
-          div.footer
-        p &copy; Verajulia 2014
-
-include ../../../scripts
+    div YOUR E-MAIL IS {{user.email}}
+    div YOUR E-MAIL IS {{logged_in_user}}

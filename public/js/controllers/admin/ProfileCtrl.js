@@ -2,8 +2,9 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, Article, Category
 
   $scope.articles = Article.index();
   $scope.categories = Category.index();
-  $scope.user.email= $scope.logged_in_user.email;
-  
+  //$scope.user= $scope.logged_in_user;
+  var user = req.user; 
+  $scope.user= user;
  
   //$scope.category = Category.show({ id: $routeParams.id });
 
