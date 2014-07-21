@@ -19,32 +19,9 @@ div.row
             tr(ng-repeat="items in users")
             tr No records to display
                
-    div.container YOUR E-MAIL IS {{user}}
+    div YOUR E-MAIL IS {{user}}
 
+          div.footer
+        p &copy; Verajulia 2014
 
-div.row
-    div.container
-        h2 Articles
-        p Number of articles: {{articles.length}}
-        p Number of categories: {{categories.length}}
-        div.col-md-8
-
-            article(ng-repeat="article in articles")
-                a(href="/articles/{{article._id}}") {{article.title}}
-                p Category: {{ article.category }}
-                p {{ article.date }}
-                p {{ article.author }}
-                p {{ article.smallbody }}
-                
-        div.col-md-4
-         button.btn.btn-success(ng-click="newArticle()") New Article
-         h2 Category
-         
-         div(ng-repeat="article in articles")
-          p
-            a(href="/articles/category/{{article.categoryId}}") {{article.category}}
-         h2 Archive
-        
-         div(ng-repeat="article in articles")
-           p
-             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
+include ../../../scripts

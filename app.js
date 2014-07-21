@@ -53,17 +53,36 @@ require('./config/passport')(passport); // pass passport for configuration
 // routes ======================================================================
 require('./routes/siteroutes.js')(app); // load our routes and pass in our app and fully configured passport
 require('./routes')(app, passport); // load our routes and pass in our app and fully configured passport
-       
-// Main (non-ajax/REST routes)
-//app.get('/', routes.index); // startpoint for normal users
-//app.get('/admin', routes.adminIndex); // startpoint for admin users
+ 
 
-//app.get('/partials/site/:name', routes.site);
-//app.get('/partials/admin/templates/:name',routes.admin);
-//app.get('/partials/admin/templates/archive/:name',routes.adminArchive);
-//app.get('/partials/admin/templates/articles/:name',routes.adminArticles);
-//app.get('/partials/admin/templates/categories/:name',routes.adminCategories);
-//app.get('/partials/admin/templates/users/:name',routes.adminUsers);
+
+
+
+
+
+
+
+// Main (non-ajax/REST routes)
+//app.get('/', routesSite.index); // startpoint for normal users
+//app.get('/admin', routesAdmin.adminIndex); // startpoint for admin users
+
+//app.get('/partials/site/:name', routesSite.site);
+//app.get('/partials/admin/templates/:name',routesAdmin.admin);
+//app.get('/partials/admin/templates/archive/:name',routesAdmin.adminArchive);
+//app.get('/partials/admin/templates/articles/:name',routesAdmin.adminArticles);
+//app.get('/partials/admin/templates/categories/:name',routesAdmin.adminCategories);
+//app.get('/partials/admin/templates/users/:name',routesAdmin.adminUsers);
+
+
+
+
+
+
+
+
+
+
+
 
 // Take care of routes not defined
 // (important that this comes last 
