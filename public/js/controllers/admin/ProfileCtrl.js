@@ -1,11 +1,13 @@
-appAdmin.controller("ProfileCtrl", function($scope, $location, Article, Category) {
+appAdmin.controller("ProfileCtrl", function($scope, $location, Article, Category, user) {
 
   $scope.articles = Article.index();
   $scope.categories = Category.index();
+  //$scope.users = user.index();
   //$scope.user= $scope.logged_in_user;
-  var user = req.user; 
-  $scope.user= user;
- 
+  //var user = req.user; 
+  //$scope.user= user;
+
+
   //$scope.category = Category.show({ id: $routeParams.id });
 
   //$scope.articles = ArticleCategory.index({ id: $routeParams.id });

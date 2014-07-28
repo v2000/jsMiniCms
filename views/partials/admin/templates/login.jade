@@ -4,7 +4,7 @@ div#login_container
 	-if(message)
 		div#note #{message}
 	
-	form#login(action="/admin/login" method="post") 
+	form#login(action="/admin" method="post") 
 			label Username:
 				div#input
 					input(type="text" name="email" placeholder=" Enter your e-mail")

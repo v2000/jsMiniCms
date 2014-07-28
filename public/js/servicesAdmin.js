@@ -41,4 +41,3 @@ appAdmin.factory("user", function($resource, $http) {
     return resource;
 });
 
-

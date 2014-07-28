@@ -7,7 +7,7 @@ var appAdmin = angular.module('myAdmin', ['ngResource']).config([
     $routeProvider
 
 //admin
-      .when('/admin/login', {
+      .when('/admin', {
         templateUrl: "partials/admin/templates/login.jade",
         controller: "LoginCtrl"
       })
@@ -15,7 +15,7 @@ var appAdmin = angular.module('myAdmin', ['ngResource']).config([
         templateUrl: "partials/admin/templates/signup.jade",
         controller: "SignupCtrl"
       })
-      .when('/admin/profile', {
+      .when('/profile', {
         templateUrl: "partials/admin/templates/profile.jade",
         controller: "ProfileCtrl"
       })

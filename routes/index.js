@@ -5,37 +5,17 @@ module.exports = function(app, passport) {
   app.get('/admin', function(req, res) {
     res.render('adminLayout');
   });
-  //=====================================
-  //PROFILE
-  //=====================================
-   //app.get('/profile', isLoggedIn, function(req, res) {
-  app.get('/admin/profile', isLoggedIn, function(req, res) {
-    //res.render('profile.jade', {
-      res.render('partials/admin/templates/profile.jade', {
-      user : req.user // get the user out of session and pass to template
-    });
-      
-  });
-
-  // =====================================
-  // LOGOUT ==============================
-  // =====================================
-  app.get('/admin/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-  });
-
   // =====================================
   // LOGIN ===============================
   // =====================================
   // show the login form
-  app.get('/admin/login', function(req, res){
+  app.get('/admin', function(req, res){
   res.render('partials/admin/templates/login', { message: req.flash('loginMessage') });
 }); // startpoint for admin users
 
  // process the login form
-  app.post('/admin/login', passport.authenticate('local-login', {
-    successRedirect : '/admin/profile', // redirect to the secure profile section
+  app.post('/admin', passport.authenticate('local-login', {
+    successRedirect : '/profile', // redirect to the secure profile section
     failureRedirect : '/admin', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -51,7 +31,7 @@ module.exports = function(app, passport) {
 
   // process the signup form
   app.post('/admin/signup', passport.authenticate('local-signup', {
-    successRedirect : '/admin/profile', // redirect to the secure profile section
+    successRedirect : '/profile', // redirect to the secure profile section
     failureRedirect : '/admin', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
@@ -104,7 +84,28 @@ module.exports = function(app, passport) {
 //  console.log("admin name", name);
 //  res.render('partials/admin/templates/users/' + name);
 //  });
+  //=====================================
+  //PROFILE
+  //=====================================
+   //app.get('/profile', isLoggedIn, function(req, res) {
+  app.get('/profile', isLoggedIn, function(req, res) {
+    //res.render('profile.jade', {
 
+      res.render('partials/admin/templates/profile.jade', {
+      user : req.user // get the user out of session and pass to template
+    });
+    //console.log('profile/user')
+    //console.log(req.user.email)
+    //res.jsonp({ user:req.user.email});
+  });
+
+  // =====================================
+  // LOGOUT ==============================
+  // =====================================
+  app.get('/admin/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
 
 };
 
