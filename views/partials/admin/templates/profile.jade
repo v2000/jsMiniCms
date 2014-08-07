@@ -1,12 +1,12 @@
 //body(ng-app="myApp" ng-controller="ProfileCtrl" ng-init="logged_in_user = {req.user}")
 //body(ng-app="myAdmin" ng-init="logged_in_user = {req.user}")
-add-scripts
+//add-scripts
 admin-menu
 div.row
 
     div.container
-    -if(user.email)
-        h3 Welcome, #{user.email}
+    //-if(user.email)
+        //h3 Welcome, #{user.email}
         //-if(user.email)
         //  div#note #{user.email}
         table.statistics
@@ -20,8 +20,7 @@ div.row
             tr(ng-repeat="items in users")
             tr No records to display
                
-    //div YOUR E-MAIL IS {{user.email}}
-    //div YOUR E-MAIL IS {{logged_in_user}}
+    div YOU NAME IS: {{user}}
 
     p Number of articles: {{articles.length}}
     p Number of categories: {{categories.length}}

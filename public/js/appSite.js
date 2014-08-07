@@ -7,7 +7,7 @@ var appSite = angular.module('myApp', ["ngResource"]).config([
     $routeProvider
 
 //visitors
-      .when("/articles/list", {
+      .when("/articles", {
         templateUrl: "partials/site/articlesListView.jade",
         controller: "ArticlesIndexCtrl"
       })
@@ -25,7 +25,7 @@ var appSite = angular.module('myApp', ["ngResource"]).config([
             controller: "ArticlesArchiveCtrl"
         })
       .otherwise({
-        redirectTo: "/articles/list"
+        redirectTo: "/articles"
       });
     }
 ]);

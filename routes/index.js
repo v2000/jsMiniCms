@@ -1,18 +1,14 @@
 
 module.exports = function(app, passport) {
-  // show the home page (will also have our login links)
-  //app.get('/admin', routes.adminIndex); // startpoint for admin users
-  app.get('/admin/login', function(req, res) {
-    res.render('adminLayout');
-  });
+
+var userMem;
   // =====================================
   // LOGIN ===============================
   // =====================================
   // show the login form
   app.get('/admin/login', function(req, res){
-  res.render('', { message: req.flash('loginMessage') });
-  console.log('loginMessage', message);
-}); // startpoint for admin users
+  res.render('adminLayout', { message: req.flash('loginMessage') });
+});
 
  // process the login form
   app.post('/admin/login', passport.authenticate('local-login', {
@@ -26,31 +22,15 @@ module.exports = function(app, passport) {
   // =====================================
   // show the signup form
   app.get('/admin/signup', function(req, res) {
-    // render the page and pass in any flash data if it exists
-    res.render('', { message: req.flash('signupMessage') });
-    console.log('signupMessage', message);
+    res.render('adminLayout', { message: req.flash('signupMessage') });
   });
 
   // process the signup form
   app.post('/admin/signup', passport.authenticate('local-signup', {
     successRedirect : '/admin/profile', // redirect to the secure profile section
-    failureRedirect : '/admin/login', // redirect back to the signup page if there is an error
+    failureRedirect : '/admin/signup', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
-
-  // =====================================
-  // LIST VIEW =========================
-  // =====================================
-  // we will want this protected so you have to be logged in to visit
-  // we will use route middleware to verify this (the isLoggedIn function)
-  
-  //app.get('/admin/articles/listview', isLoggedIn, function (req, res) {
-  //    res.render('partials/admin/templates/articles/listview', {
-  //    user : req.user // get the user out of session and pass to template
-  //  });
-  //});
-  
-
 
 //app.get('/partials/admin/templates/:name',routes.admin);
  app.get('/partials/admin/templates/:name', function(req, res) {
@@ -89,16 +69,22 @@ module.exports = function(app, passport) {
   //=====================================
   //PROFILE
   //=====================================
-   //app.get('/profile', isLoggedIn, function(req, res) {
+
+  
   app.get('/admin/profile', isLoggedIn, function(req, res) {
     //res.render('profile.jade', {
-
-      res.render('', {
-      user : req.user // get the user out of session and pass to template
-    });
-    //console.log('profile/user')
-    //console.log(req.user.email)
+    userMem = req.user;
+    console.log("userMem",userMem);
+    res.render('adminLayout');
+    console.log('profile/user');
+    console.log(req.user.email);
     //res.jsonp({ user:req.user.email});
+  });
+
+  app.get("/admin/api/user",isLoggedIn, function(req,res){
+    var a = userMem;
+    userMem = undefined;
+    res.json(a);
   });
 
   // =====================================
@@ -106,19 +92,20 @@ module.exports = function(app, passport) {
   // =====================================
   app.get('/admin/logout', function(req, res) {
     req.logout();
+    console.log("REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",req);
     res.redirect('/admin/login');
   });
 
   
 
-  app.get('/admin/:anything', function(req, res) {
-    console.log("HERE!");
-    res.render('adminLayout');
-  });
+//  app.get('/admin/:anything', function(req, res) {
+//    console.log("HERE!");
+//    res.render('adminLayout');
+//  });
 
-//   app.get('*', function(req, res){
-//    res.render('layout');
-//   }); 
+   app.get('/*', function(req, res){
+    res.render('layout');
+   }); 
 
 
 };
@@ -127,7 +114,7 @@ module.exports = function(app, passport) {
 function isLoggedIn(req, res, next) {
 console.log("req.isAuthenticated()",req.isAuthenticated());
   // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
+  if (req.isAuthenticated()) 
     return next();
 
   // if they aren't redirect them to the home page

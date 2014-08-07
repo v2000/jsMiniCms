@@ -23,7 +23,6 @@ appAdmin.factory("Category", function($resource, $http) {
       'destroy': { method: 'DELETE' }
     }
   );
-
   return resource;
 });
 
@@ -41,3 +40,11 @@ appAdmin.factory("user", function($resource, $http) {
     return resource;
 });
 
+appAdmin.factory("LoggedUser", function($resource, $http) {
+  var resource = $resource("/admin/api/user", {},
+    {
+      'show':   { method: 'GET'}
+    }
+  );
+  return resource;
+});
