@@ -2,21 +2,22 @@
 module.exports = function(app, passport) {
   // show the home page (will also have our login links)
   //app.get('/admin', routes.adminIndex); // startpoint for admin users
-  app.get('/admin', function(req, res) {
+  app.get('/admin/login', function(req, res) {
     res.render('adminLayout');
   });
   // =====================================
   // LOGIN ===============================
   // =====================================
   // show the login form
-  app.get('/admin', function(req, res){
-  res.render('partials/admin/templates/login', { message: req.flash('loginMessage') });
+  app.get('/admin/login', function(req, res){
+  res.render('', { message: req.flash('loginMessage') });
+  console.log('loginMessage', message);
 }); // startpoint for admin users
 
  // process the login form
-  app.post('/admin', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
-    failureRedirect : '/admin', // redirect back to the signup page if there is an error
+  app.post('/admin/login', passport.authenticate('local-login', {
+    successRedirect : '/admin/profile', // redirect to the secure profile section
+    failureRedirect : '/admin/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
 
@@ -26,13 +27,14 @@ module.exports = function(app, passport) {
   // show the signup form
   app.get('/admin/signup', function(req, res) {
     // render the page and pass in any flash data if it exists
-    res.render('partials/admin/templates/signup', { message: req.flash('signupMessage') });
+    res.render('', { message: req.flash('signupMessage') });
+    console.log('signupMessage', message);
   });
 
   // process the signup form
   app.post('/admin/signup', passport.authenticate('local-signup', {
-    successRedirect : '/profile', // redirect to the secure profile section
-    failureRedirect : '/admin', // redirect back to the signup page if there is an error
+    successRedirect : '/admin/profile', // redirect to the secure profile section
+    failureRedirect : '/admin/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
   }));
 
@@ -88,10 +90,10 @@ module.exports = function(app, passport) {
   //PROFILE
   //=====================================
    //app.get('/profile', isLoggedIn, function(req, res) {
-  app.get('/profile', isLoggedIn, function(req, res) {
+  app.get('/admin/profile', isLoggedIn, function(req, res) {
     //res.render('profile.jade', {
 
-      res.render('partials/admin/templates/profile.jade', {
+      res.render('', {
       user : req.user // get the user out of session and pass to template
     });
     //console.log('profile/user')
@@ -104,8 +106,20 @@ module.exports = function(app, passport) {
   // =====================================
   app.get('/admin/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/admin/login');
   });
+
+  
+
+  app.get('/admin/:anything', function(req, res) {
+    console.log("HERE!");
+    res.render('adminLayout');
+  });
+
+//   app.get('*', function(req, res){
+//    res.render('layout');
+//   }); 
+
 
 };
 
@@ -117,5 +131,5 @@ console.log("req.isAuthenticated()",req.isAuthenticated());
     return next();
 
   // if they aren't redirect them to the home page
-  res.redirect('/admin');
+  res.redirect('/admin/login');
 }
