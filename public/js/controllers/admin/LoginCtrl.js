@@ -1,6 +1,5 @@
-appAdmin.controller("LoginCtrl", function($scope, $location, Article, Category) {
- $scope.articles = Article.index();
-  $scope.categories = Category.index();
+appAdmin.controller("LoginCtrl", function($scope, $location) {
+
   console.log("IT IS controller LoginCtrl");
 
 });

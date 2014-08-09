@@ -13,16 +13,15 @@ var autoREST = require("../libs/autoREST");
 
 // API routes for Article
 var routes = exports.routes = autoREST.buildRoutes(
-  "Article", "articles:ALL"
+  "ArticleAdminUser", "articles:ALL"
 );
-
 // List of articles - modify with a join on category
 autoREST.modify(routes["GET:articles"],{
   populate: {
-    join: "Category",
-    joinOn: ["categoryId", "_id"],
+    join: "User",
+    joinOn: ["userId", "_id"],
     filter: "name",
-    toProperty: "category"
+    toProperty: "user"
   }
 });
 
@@ -31,15 +30,6 @@ autoREST.modify(routes["GET:articles"],{
 autoREST.modify(routes["GET:articles/:id"],{
   populate: routes["GET:articles"].populate
 });
-
-// Return a list of articles in a certain categpry
-autoREST.add(routes,"GET:articles/category/:id",{
-  query: function(req){ return {categoryId: req.params.id}; }
-});
-
-
-
-
 
 // Return a list of articles in a certain categpry
 autoREST.add(routes,"GET:articles/user/:id",{

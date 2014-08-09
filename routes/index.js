@@ -32,7 +32,6 @@ var userMem;
     failureFlash : true // allow flash messages
   }));
 
-//app.get('/partials/admin/templates/:name',routes.admin);
  app.get('/partials/admin/templates/:name', function(req, res) {
    var name = req.params.name;
   console.log("admin name", name);
@@ -46,45 +45,48 @@ var userMem;
 //  res.render('partials/admin/templates/archive/' + name);
 //  });
 
-//app.get('/partials/admin/templates/articles/:name',routes.adminArticles);
   app.get('/partials/admin/templates/articles/:name', function(req, res) {
    var name = req.params.name;
   console.log("admin name", name);
   res.render('partials/admin/templates/articles/' + name);
   });
 
-//app.get('/partials/admin/templates/categories/:name',routes.adminCategories);
   app.get('/partials/admin/templates/categories/:name', function(req, res) {
    var name = req.params.name;
   console.log("admin name", name);
   res.render('partials/admin/templates/categories/' + name);
   });
 
-//app.get('/partials/admin/templates/users/:name',routes.adminUsers);
-//  app.get('/partials/admin/templates/users/:name', function (req, res) {
-//   var name = req.params.name;
-//  console.log("admin name", name);
-//  res.render('partials/admin/templates/users/' + name);
-//  });
+  app.get('/partials/admin/templates/users/:name', function (req, res) {
+   var name = req.params.name;
+  console.log("admin name", name);
+  res.render('partials/admin/templates/users/' + name);
+  });
+
   //=====================================
   //PROFILE
   //=====================================
-
-  
   app.get('/admin/profile', isLoggedIn, function(req, res) {
-    //res.render('profile.jade', {
+
+    //var aaa = req.user;
+    //userMem = aaa.email;
+
     userMem = req.user;
+
     console.log("userMem",userMem);
     res.render('adminLayout');
     console.log('profile/user');
     console.log(req.user.email);
     //res.jsonp({ user:req.user.email});
+
   });
 
   app.get("/admin/api/user",isLoggedIn, function(req,res){
     var a = userMem;
     userMem = undefined;
+
     res.json(a);
+
   });
 
   // =====================================
@@ -96,12 +98,17 @@ var userMem;
     res.redirect('/admin/login');
   });
 
-  
+//  app.get('/admin/logout', function (req, res){
+//   req.session.destroy();
+//      setTimeout(function() {
+//    res.redirect('/admin/login');
+//}, 4000);
 
-//  app.get('/admin/:anything', function(req, res) {
-//    console.log("HERE!");
-//    res.render('adminLayout');
-//  });
+
+  //req.session.destroy(function (err) {
+  //  res.redirect('/admin/login'); //Inside a callback… bulletproof!
+  //});
+//});
 
    app.get('/*', function(req, res){
     res.render('layout');

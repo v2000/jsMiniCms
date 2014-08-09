@@ -22,7 +22,7 @@ var session      = require('express-session');
 require("./libs/autoREST").registerSchemas({
   app: app,
   db: "wages_database",
-  schemas: ["Article", "Category", "user"]
+  schemas: ["Article", "ArticleAdminUser", "ArticleAdminCategory", "Category", "user"]
 });
 
 // uncomment this line

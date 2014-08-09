@@ -1,27 +1,25 @@
-//body(ng-app="myApp" ng-controller="ProfileCtrl" ng-init="logged_in_user = {req.user}")
-//body(ng-app="myAdmin" ng-init="logged_in_user = {req.user}")
-//add-scripts
 admin-menu
 div.row
 
     div.container
-    //-if(user.email)
-        //h3 Welcome, #{user.email}
-        //-if(user.email)
-        //  div#note #{user.email}
-        table.statistics
-            h4 Your statistics
-            thead
-                th Number of articles
-                th Number of categories
-                th Number of users
-            tr(ng-repeat="items in articles")
-            tr(no-repeat="items in categories")
-            tr(ng-repeat="items in users")
-            tr No records to display
-               
-    div YOU NAME IS: {{user}}
 
-    p Number of articles: {{articles.length}}
-    p Number of categories: {{categories.length}}
-    a(href="/admin/logout") Log out
+      div Hello, {{userEmail}}
+      div Hello your id is: {{userId}}
+      div You write {{articles.length}} articles.
+      div You created {{categories.length}} category.
+      div It is {{users.length}} users here
+
+
+      div(style="margin-bottom:20px") Number of users: {{users.length}}
+      div(ng-switch="!!users.length")
+        table.table.table-striped(ng-switch-when="true")
+          thead
+            td E-mail
+            td Password
+          tbody
+            tr(ng-repeat="user in users")
+              td {{user.email}}
+              td {{user.password}}
+
+      article(ng-repeat="article in articles")
+                p {{article}}

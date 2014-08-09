@@ -13,7 +13,7 @@ var autoREST = require("../libs/autoREST");
 
 // API routes for Article
 var routes = exports.routes = autoREST.buildRoutes(
-  "Article", "articles:ALL"
+  "ArticleAdminCategory", "articles:ALL"
 );
 
 // List of articles - modify with a join on category
@@ -35,13 +35,4 @@ autoREST.modify(routes["GET:articles/:id"],{
 // Return a list of articles in a certain categpry
 autoREST.add(routes,"GET:articles/category/:id",{
   query: function(req){ return {categoryId: req.params.id}; }
-});
-
-
-
-
-
-// Return a list of articles in a certain categpry
-autoREST.add(routes,"GET:articles/user/:id",{
-  query: function(req){ return {userId: req.params.id}; }
 });

@@ -24,5 +24,5 @@ var autoREST = require("../libs/autoREST");
 
 // API routes for User
 var routes = exports.routes = autoREST.buildRoutes(
-  "user", "users:ALL"
+  "User", "users:ALL"
 );
