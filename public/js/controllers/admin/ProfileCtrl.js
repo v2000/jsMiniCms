@@ -5,10 +5,6 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
   $scope.users = user.index();
 
 
-  //$scope.user = LoggedUser.show();
-
-
-
   DataProvider.success(function(data){
     $scope.userData = data;
     $scope.userEmail=data.email;
@@ -21,8 +17,6 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
   //$scope.articles = ArticleCategory.index({ id: aaa });
 
  
- 
-  
   console.log("IT IS controller ProfileCtrl");
 
   $scope.new = function() {

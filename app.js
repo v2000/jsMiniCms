@@ -17,7 +17,6 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 
-
 // Register all schemas (and their api routes)
 require("./libs/autoREST").registerSchemas({
   app: app,
@@ -55,13 +54,6 @@ require('./routes/siteroutes.js')(app); // load our routes and pass in our app a
 require('./routes')(app, passport); // load our routes and pass in our app and fully configured passport
  
 
-
-
-
-
-
-
-
 // Main (non-ajax/REST routes)
 //app.get('/', routesSite.index); // startpoint for normal users
 //app.get('/admin', routesAdmin.adminIndex); // startpoint for admin users
@@ -72,16 +64,6 @@ require('./routes')(app, passport); // load our routes and pass in our app and f
 //app.get('/partials/admin/templates/articles/:name',routesAdmin.adminArticles);
 //app.get('/partials/admin/templates/categories/:name',routesAdmin.adminCategories);
 //app.get('/partials/admin/templates/users/:name',routesAdmin.adminUsers);
-
-
-
-
-
-
-
-
-
-
 
 
 // Take care of routes not defined

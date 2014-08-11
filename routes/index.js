@@ -22,7 +22,7 @@ var userMem;
   // =====================================
   // show the signup form
   app.get('/admin/signup', function(req, res) {
-    res.render('adminLayout', { message: req.flash('signupMessage') });
+    res.render('adminLayout');
   });
 
   // process the signup form
@@ -68,13 +68,15 @@ var userMem;
   //=====================================
   app.get('/admin/profile', isLoggedIn, function(req, res) {
 
-    //var aaa = req.user;
-    //userMem = aaa.email;
+
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
 
     userMem = req.user;
 
     console.log("userMem",userMem);
-    res.render('adminLayout');
+    //res.render('adminLayout');
     console.log('profile/user');
     console.log(req.user.email);
     //res.jsonp({ user:req.user.email});
