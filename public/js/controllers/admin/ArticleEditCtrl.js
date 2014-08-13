@@ -1,4 +1,4 @@
-appAdmin.controller("ArticleEditCtrl", function($scope, $location, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
+appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
   //$scope.articles = Article.index();
   $scope.categories = Category.index();
   $scope.users = user.index();
@@ -14,7 +14,7 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, ArticleAdminU
         console.log("userId",userId);
       if (userId) {
         console.log("AAAAAAAAAAAA");
-        $scope.article = ArticleAdminCategory.show({ id: userId });
+        $scope.article = ArticleAdminUser.show({ id: userId });
       } else {
          console.log("BBBBBBBBBBBBB");
         $scope.article = new ArticleAdminCategory();

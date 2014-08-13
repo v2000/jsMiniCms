@@ -7,4 +7,5 @@ appSite.controller("ArticlesCategoryCtrl", function($scope, $routeParams, $locat
   $scope.new = function() {
     $location.path("/articles/new/" + $routeParams.id);
   };
+  console.log("$routeParams.id", $routeParams.id);
 });

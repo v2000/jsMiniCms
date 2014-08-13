@@ -1,4 +1,4 @@
-appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
+appAdmin.controller("ProfileCtrl", function($scope, $location, $routeParams, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
   //$scope.articles = Article.index();
   $scope.categories = Category.index();
   $scope.users = user.index();
@@ -20,4 +20,11 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
    $scope.newArticle = function() {
     $location.path("/admin/articles/new");    
   };
+
+  //  $scope.view_edit = function() {
+  //  $routeParams=
+  //  $location.path("/admin/articles/{{article._id}}/edit");    
+  //};
+
+  console.log("$routeParams.id", $routeParams.id);
 });
