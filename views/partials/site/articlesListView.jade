@@ -34,30 +34,32 @@ div.page-container
             div.row
                 div.col-md-12
                     article.post(ng-repeat="article in articles")
-                        h2 {{article.title}} Dummy Title
-                            div.row
-                                div.col-md-3
-                                    img.img-responsive(src="img/img2-small.jpg")
-                                div.col-md-9
-                                    ul.list-inline
-                                        li
-                                            i.fa.fa-map-marker
-                                                | Sweden
-                                        li
-                                            i.fa.fa-calendar
-                                                | 18 Jan 1982
-                                        li
-                                            i.fa.fa-briefcase
-                                                | Programmer
-                                        li
-                                            i.fa.fa-star
-                                                | Rocket Science
-                                        li
-                                            i.fa.fa-heart
-                                                | Math
-                                    //end col-md-9
-                                p {{article.body}}
-                                //end .row
+                        h2 {{article.title}}
+                        div.row
+                            div.col-md-3
+                                img.img-responsive(src="img/img2-small.jpg")
+                            div.col-md-9
+                                ul.list-inline
+                                    li
+                                        i.fa.fa-map-marker
+                                        | Sweden
+                                    li
+                                        i.fa.fa-calendar
+                                        | 18 Jan 1982
+                                    li
+                                        i.fa.fa-briefcase
+                                        | Programmer
+                                    li
+                                        i.fa.fa-star
+                                        | Rocket Science
+                                    li
+                                        i.fa.fa-heart
+                                        | Math
+                                //end col-md-9
+                            p {{article.body}}
+                            a.float-left(href="{{article.id}}") Read more
+                            //end .row
+                        hr
             //END PAGE CONTENT
         //END CONTENT
 //END page-CONTAINER
