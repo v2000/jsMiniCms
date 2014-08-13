@@ -27,6 +27,10 @@ var appAdmin = angular.module('myAdmin', ['ngResource']).config([
         templateUrl: "partials/admin/templates/articles/editArticle.jade",
         controller: "ArticleEditCtrl"
       })
+      .when('/admin/articles/new', {
+        templateUrl: "partials/admin/templates/articles/editArticle.jade",
+        controller: "ArticleEditCtrl"
+      })
       .otherwise({
         redirectTo:'/admin/login'
       });

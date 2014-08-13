@@ -32,18 +32,67 @@ var userMem;
     failureFlash : true // allow flash messages
   }));
 
+  //=====================================
+  //PROFILE
+  //=====================================
+  app.get('/admin/profile', isLoggedIn, function(req, res) {
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+    console.log("userMem",userMem);
+    console.log('profile/user');
+    console.log(req.user.email);
+  });
+
+  //=====================================
+  //LIST VIEW
+  //=====================================
+  app.get('/admin/articles/listview', isLoggedIn, function(req, res) {
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+  });
+
+//=====================================
+  //EDIT ARTICLE
+  //=====================================
+  app.get('/admin/articles/:id/edit', isLoggedIn, function(req, res) {
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+    console.log("userMem",userMem);
+  });
+
+//=====================================
+  //NEW ARTICLE
+  //=====================================
+  app.get('/admin/articles/new', isLoggedIn, function(req, res) {
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+    console.log("userMem",userMem);
+  });
+  
+
  app.get('/partials/admin/templates/:name', function(req, res) {
    var name = req.params.name;
   console.log("admin name", name);
   res.render('partials/admin/templates/' + name);
   });
 
-//app.get('/partials/admin/templates/archive/:name',routes.adminArchive);
-//  app.get('/partials/admin/templates/archive/:name', function (req, res) {
-//   var name = req.params.name;
-//  console.log("admin name", name);
-//  res.render('partials/admin/templates/archive/' + name);
-//  });
+  app.get('/partials/admin/templates/archive/:name', function (req, res) {
+   var name = req.params.name;
+  console.log("admin name", name);
+  res.render('partials/admin/templates/archive/' + name);
+  });
 
   app.get('/partials/admin/templates/articles/:name', function(req, res) {
    var name = req.params.name;
@@ -63,65 +112,11 @@ var userMem;
   res.render('partials/admin/templates/users/' + name);
   });
 
-  //=====================================
-  //PROFILE
-  //=====================================
-  app.get('/admin/profile', isLoggedIn, function(req, res) {
-
-
-      res.render('adminLayout', { 
-      user : req.user // get the user out of session and pass to template
-    });
-
-    userMem = req.user;
-
-    console.log("userMem",userMem);
-    //res.render('adminLayout');
-    console.log('profile/user');
-    console.log(req.user.email);
-    //res.jsonp({ user:req.user.email});
-
-  });
-
-  //=====================================
-  //LIST VIEW
-  //=====================================
-  app.get('/admin/articles/listview', isLoggedIn, function(req, res) {
-
-
-      res.render('adminLayout', { 
-      user : req.user // get the user out of session and pass to template
-    });
-
-    userMem = req.user;
-
-    console.log("userMem",userMem);
-    //res.render('adminLayout');
-    console.log('profile/user');
-    console.log(req.user.email);
-  });
-
-//=====================================
-  //EDIT ARTICLE
-  //=====================================
-  app.get('/admin/articles/:id/edit', isLoggedIn, function(req, res) {
-      res.render('adminLayout', { 
-      user : req.user // get the user out of session and pass to template
-    });
-
-    userMem = req.user;
-    console.log("userMem",userMem);
-  });
-
-
-
-
+  
   app.get("/admin/api/user",isLoggedIn, function(req,res){
     var a = userMem;
     userMem = undefined;
-
     res.json(a);
-
   });
 
   // =====================================
@@ -129,7 +124,6 @@ var userMem;
   // =====================================
   app.get('/admin/logout', function(req, res) {
     req.logout();
-    console.log("REQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",req);
     res.redirect('/admin/login');
   });
 

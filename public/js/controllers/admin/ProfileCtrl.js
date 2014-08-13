@@ -18,6 +18,6 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
   console.log("IT IS controller ProfileCtrl");
 
    $scope.newArticle = function() {
-    $location.path("/admin/articles/editArticle");    
+    $location.path("/admin/articles/new");    
   };
 });
