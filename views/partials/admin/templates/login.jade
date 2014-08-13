@@ -10,7 +10,7 @@ div.content.login
     //END SIDEBAR TOGGLER BUTTON -->
     //BEGIN LOGIN FORM
     div.wind
-        form.login-form(action="#" method="post")
+        form.login-form(action="/admin/login" method="post")
             h3.form-title Login to your account
             div.alert.alert-danger.display-hide
                 button.close(data-close="alert")
@@ -20,7 +20,7 @@ div.content.login
                 label.control-label.visible-ie8.visible-ie9 Username
                 div.input-icon
                     i.fa.fa-user
-                    input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="username")
+                    input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="email")
             div.form-group
                 label.control-label.visible-ie8.visible-ie9 Password
                 div.input-icon
@@ -49,7 +49,7 @@ div.content.login
                         | Create an account
         //END LOGIN FORM
         //BEGIN REGISTRATION FORM
-        form.register-form(action="#" method="post")
+        form.register-form(action="/admin/signup" method="post")
             h3 Sign Up
             p Enter your personal details below:
             div.form-group
