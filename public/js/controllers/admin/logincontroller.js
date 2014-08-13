@@ -51,6 +51,11 @@ appAdmin.controller("logincontroller", function($scope, routerFactory, compileFa
 
         }
 
+        jQuery('#register-btn').click(function () {
+            jQuery('.login-form').hide();
+            jQuery('.register-form').show();
+        });
+
 
     }
 );
