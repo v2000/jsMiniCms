@@ -4,7 +4,7 @@ exports.schema = {
   smallbody: String,
   body: String,
   categoryId: String,
-  data: String,
+  date: String,
   userId:String,
 };
 

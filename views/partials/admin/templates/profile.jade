@@ -84,11 +84,11 @@ div.page-container
                                             th.hidden-xs: i.fa.fa-question Title
                                             th: i.fa.fa-bookmark Category
                                     tbody
-                                        tr
-                                            td: a(href="#") {{article.date}}
+                                        tr(ng-repeat="article in articles")
+                                            td: {{article.date}}
                                             td.hidden-xs {{article.title}}
                                             td {{article.category}}
-                                            td: a.btn.default.btn-xs.green-stripe(href="#") View
+                                            td: a.btn.default.btn-xs.green-stripe(href="/admin/articles/{{article._id}}/edit") View/Edit
                             // end tab-pane
                         //END TABS
             //END PAGE CONTENT

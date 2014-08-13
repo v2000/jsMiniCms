@@ -13,15 +13,11 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
     $scope.articles = ArticleUser.index({ id: data._id });
   });
 
- 
   //var aaa="5396ff5e01dd4ae810000003";
-  //$scope.articles = ArticleCategory.index({ id: aaa });
-
- 
+  //$scope.articles = ArticleCategory.index({ id: aaa }); 
   console.log("IT IS controller ProfileCtrl");
 
-  $scope.newArticle = function() {
-
-    $location.path("/admin/articles/editArticle" + userId);    
+   $scope.newArticle = function() {
+    $location.path("/admin/articles/editArticle");    
   };
 });
