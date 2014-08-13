@@ -1,4 +1,5 @@
-appAdmin.factory("ArticleAdminUser", function($resource, $http) {
+//appAdmin.factory("ArticleAdminUser", function($resource, $http) {
+appAdmin.factory("Article", function($resource, $http) {
   var resource = $resource("/api/articles/:id", { id: "@_id" },
     {
       'create':  { method: 'POST' },
@@ -12,7 +13,7 @@ appAdmin.factory("ArticleAdminUser", function($resource, $http) {
   return resource;
 });
 
-appAdmin.factory("ArticleAdminCategory", function($resource, $http) {
+/*appAdmin.factory("ArticleAdminCategory", function($resource, $http) {
   var resource = $resource("/api/articles/:id", { id: "@_id" },
     {
       'create':  { method: 'POST' },
@@ -24,7 +25,7 @@ appAdmin.factory("ArticleAdminCategory", function($resource, $http) {
   );
 
   return resource;
-});
+});*/
 
 appAdmin.factory("Category", function($resource, $http) {
   var resource = $resource("/api/categories/:id", { id: "@_id" },

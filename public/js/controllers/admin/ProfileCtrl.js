@@ -1,4 +1,4 @@
-appAdmin.controller("ProfileCtrl", function($scope, $location, $routeParams, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
+appAdmin.controller("ProfileCtrl", function($scope, $location, $routeParams, Article, Category, user, ArticleUser, DataProvider, ArticleCategory) {
   //$scope.articles = Article.index();
   $scope.categories = Category.index();
   $scope.users = user.index();

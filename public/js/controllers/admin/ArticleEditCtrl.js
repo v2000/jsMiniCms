@@ -1,4 +1,4 @@
-appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
+appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams, Article, Category, user, ArticleUser, DataProvider, ArticleCategory) {
   //$scope.articles = Article.index();
   $scope.categories = Category.index();
   $scope.users = user.index();
@@ -14,10 +14,10 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams,
         console.log("userId",userId);
       if (userId) {
         console.log("AAAAAAAAAAAA");
-        $scope.article = ArticleAdminUser.show({ id: userId });
+        $scope.article = Article.show({ id: userId });
       } else {
          console.log("BBBBBBBBBBBBB");
-        $scope.article = new ArticleAdminCategory();
+        $scope.article = new Article();
       }
 
   //    if($routeParams.depId){
@@ -75,6 +75,6 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams,
     return result.join(", ");
   };
 
-  
+  console.log("$routeParams.id", $routeParams.id);
   console.log("IT IS controller ArticleEditCtrl")
 });
