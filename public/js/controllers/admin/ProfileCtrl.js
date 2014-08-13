@@ -21,10 +21,5 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, $routeParams, Art
     $location.path("/admin/articles/new");    
   };
 
-  //  $scope.view_edit = function() {
-  //  $routeParams=
-  //  $location.path("/admin/articles/{{article._id}}/edit");    
-  //};
-
   console.log("$routeParams.id", $routeParams.id);
 });
