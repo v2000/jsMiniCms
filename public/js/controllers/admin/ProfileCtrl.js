@@ -1,5 +1,4 @@
 appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser, ArticleAdminCategory, Category, user, ArticleUser, DataProvider, ArticleCategory) {
-
   //$scope.articles = Article.index();
   $scope.categories = Category.index();
   $scope.users = user.index();
@@ -9,6 +8,8 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
     $scope.userData = data;
     $scope.userEmail=data.email;
     $scope.userId=data._id;
+    var userId=data._id;
+    console.log("userId from PROFILE",userId);
     $scope.articles = ArticleUser.index({ id: data._id });
   });
 
@@ -19,8 +20,8 @@ appAdmin.controller("ProfileCtrl", function($scope, $location, ArticleAdminUser,
  
   console.log("IT IS controller ProfileCtrl");
 
-  $scope.new = function() {
-    console.log("$routeParams.id",$routeParams.id);
-    $location.path("/admin/articles/editArticle" + $routeParams.id);
+  $scope.newArticle = function() {
+
+    $location.path("/admin/articles/editArticle" + userId);    
   };
 });

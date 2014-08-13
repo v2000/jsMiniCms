@@ -11,13 +11,11 @@ div#form_container
             th Edit
             th Delete
 
-        tr(ng-repeat="item in articles")
-            td.center {{ article.id }}
+        tr(ng-repeat="article in articles")
+            td.center {{ article._id }}
             td {{ article.title }}
             td {{ article.category }}
             td {{ article.date }}
             td {{ article.author}}
-            td: a(href="{{ article.edit_url }}") Edit
+            td: a(href="/admin/articles/{{article._id}}/edit") Edit
             td: a(href="#" data-deleteurl="{{ article.delete_url}}" ng-click="confirmDelete($event)") Delete
-        tr
-            td 'No records to display'

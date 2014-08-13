@@ -83,6 +83,39 @@ var userMem;
 
   });
 
+  //=====================================
+  //LIST VIEW
+  //=====================================
+  app.get('/admin/articles/listview', isLoggedIn, function(req, res) {
+
+
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+
+    console.log("userMem",userMem);
+    //res.render('adminLayout');
+    console.log('profile/user');
+    console.log(req.user.email);
+  });
+
+//=====================================
+  //EDIT ARTICLE
+  //=====================================
+  app.get('/admin/articles/:id/edit', isLoggedIn, function(req, res) {
+      res.render('adminLayout', { 
+      user : req.user // get the user out of session and pass to template
+    });
+
+    userMem = req.user;
+    console.log("userMem",userMem);
+  });
+
+
+
+
   app.get("/admin/api/user",isLoggedIn, function(req,res){
     var a = userMem;
     userMem = undefined;
