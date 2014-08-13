@@ -1,30 +1,96 @@
 admin-menu
-div.row
 
-    div.container
-      //-if(user.email)
-      //      h3 Welcome, your e-mail is:#{user.email}
-
-      div Hello, {{userEmail}}
-      div Hello your id is: {{userId}}
-      div You write {{articles.length}} articles.
-      div You created {{categories.length}} category.
-      div It is {{users.length}} users here
-
-
-      div(style="margin-bottom:20px") Number of users: {{users.length}}
-      div(ng-switch="!!users.length")
-        table.table.table-striped(ng-switch-when="true")
-          thead
-            td E-mail
-            td Password
-          tbody
-            tr(ng-repeat="user in users")
-              td {{user.email}}
-              td {{user.password}}
-
-      article(ng-repeat="article in articles")
-                p {{article}}
-
-      div.col-md-4
-         button.btn.btn-success(ng-click="newArticle()") New Article
+//BEGIN CONTAINER
+div.page-container
+    //BEGIN SIDEBAR
+    div.page-sidebar-wrapper
+        div.page-sidebar.navbar-collapse.collapse
+            //BEGIN SIDEBAR MENU
+            ul.page-sidebar-menu(data-auto-scroll="true" data-slide-speed="200")
+                li.sidebar-toggler-wrapper
+                    //BEGIN SIDEBAR TOGGLER BUTTON
+                    div.sidebar-toggler
+                    //END SIDEBAR TOGGLER BUTTON
+                li.start
+                    a(href="#")
+                        i.icon-home
+                span.title Dashboard
+                li.start
+                    a(href="#")
+                        i.icon-home
+                span.title Users
+                li.start
+                    a(href="#")
+                        i.icon-home
+                span.title Categories
+                    ul.dropdown
+                        li(ng-repeat='categories in category') {{article.category}}
+                li.start
+                    a(href="#")
+                        i.icon-home
+                span.title Tags
+            //END SIDEBAR MENU
+    //END SIDEBAR
+    //BEGIN CONTENT
+    div.page-content-wrapper
+        div.page-content
+            //BEGIN PAGE HEADER
+            div.row
+                div.col-md-12
+                    //BEGIN PAGE TITLE
+                    h3.page-title Vera Per user profile
+                    //END PAGE TITLE
+            //END PAGE HEADER
+            //BEGIN PAGE CONTENT
+            div.row.profile
+                div.col-md-12
+                    //BEGIN TABS
+                    div.tabbable.tabbable-custom.tabbable-full-width
+                        div.tab-content
+                            div.tab-pane.active
+                                div.row
+                                    div.col-md-3
+                                        img.img-responsive(src="img/img2-small.jpg")
+                                    div.col-md-9
+                                div.row
+                                    div.col-md-8.profile-info
+                                        h1 Vera Per
+                                        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+                                        p: a(href="#") mywebsite.com
+                                        ul.list-inline
+                                            li:i.fa.fa-map-marker Sweden
+                                            li:i.fa.fa-calendar 18 Jan 1982
+                                            li:i.fa.fa-briefcase Programmer
+                                            li:i.fa.fa-star Rocket Science
+                                            li:i.fa.fa-heart Math
+                                    //end col-md-8
+                                    div.col-md-4
+                                         button.btn.btn-success(ng-click="newArticle()") New Article
+                                    //end col-md-4
+                                //end .row
+                    div.tabbable.tabbable-custom.tabbable-custom-profile
+                        ul.nav.nav-tabs
+                            li.active
+                                a(href="#" data-toggle="tab") Latest Articles
+                            li
+                                a(href="#" data-toggle="tab") Fake tab
+                        div.tab-content
+                            div.tab-pane.active
+                            div.portlet-body
+                                table.table.table-striped.table-bordered.table-advance.table-hover
+                                    thead
+                                        tr
+                                            th: i.fa.fa-calendar Date
+                                            th.hidden-xs: i.fa.fa-question Title
+                                            th: i.fa.fa-bookmark Category
+                                    tbody
+                                        tr
+                                            td: a(href="#") {{article.date}}
+                                            td.hidden-xs {{article.title}}
+                                            td {{article.category}}
+                                            td: a.btn.default.btn-xs.green-stripe(href="#") View
+                            // end tab-pane
+                        //END TABS
+            //END PAGE CONTENT
+        //END CONTENT
+//END page-CONTAINER

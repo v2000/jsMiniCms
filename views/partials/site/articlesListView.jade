@@ -1,30 +1,63 @@
-div.row
-    div.container
-        h2 Articles
-        p Number of articles: {{articles.length}}
-        p Number of categories: {{categories.length}}
-        div.col-md-8
-
-            article(ng-repeat="article in articles")
-                a(href="/articles/{{article._id}}") {{article.title}}
-                p Category: {{ article.category }}
-                p {{ article.date }}
-                p {{ article.author }}
-                p {{ article.smallbody }}
-
-            //user(ng-repeat="user in users")
-                //p {{ user.email }}
-                //p {{ user.password }}
-                
-        div.col-md-4
-         button.btn.btn-success(ng-click="newArticle()") New Article
-         h2 Category
-         
-         div(ng-repeat="article in articles")
-          p
-            a(href="/articles/category/{{article.categoryId}}") {{article.category}}
-         h2 Archive
-        
-         div(ng-repeat="article in articles")
-           p
-             a(href="/articles/category/{{article.categoryId}}") {{article.category}}
+//BEGIN CONTAINER
+div.page-container
+    //BEGIN SIDEBAR
+    div.page-sidebar-wrapper
+        div.page-sidebar.navbar-collapse.collapse
+            //BEGIN SIDEBAR MENU
+            ul.page-sidebar-menu(data-auto-scroll="true" data-slide-speed="200")
+                li.sidebar-toggler-wrapper
+                    //BEGIN SIDEBAR TOGGLER BUTTON
+                    div.sidebar-toggler
+                    //END SIDEBAR TOGGLER BUTTON
+                li.start
+                     a(href="#")
+                        i.icon-home
+                        span.title Dashboard
+                li.start
+                     a(href="#")
+                        i.icon-home
+                        span.title Users
+                li.start
+                     a(href="#")
+                        i.icon-home
+                        span.title Categories
+                li.start
+                    a(href="#")
+                        i.icon-home
+                        span.title Tags
+            //END SIDEBAR MENU
+    //END SIDEBAR
+    //BEGIN CONTENT
+    div.page-content-wrapper
+        div.page-content
+            //BEGIN PAGE CONTENT
+            div.row
+                div.col-md-12
+                    article.post(ng-repeat="article in articles")
+                        h2 {{article title}} Dummy Title
+                            div.row
+                                div.col-md-3
+                                    img.img-responsive(src="img/img2-small.jpg")
+                                div.col-md-9
+                                    ul.list-inline
+                                        li
+                                            i.fa.fa-map-marker
+                                                | Sweden
+                                        li
+                                            i.fa.fa-calendar
+                                                | 18 Jan 1982
+                                        li
+                                            i.fa.fa-briefcase
+                                                | Programmer
+                                        li
+                                            i.fa.fa-star
+                                                | Rocket Science
+                                        li
+                                            i.fa.fa-heart
+                                                | Math
+                                    //end col-md-9
+                                p {{article.body}}
+                                //end .row
+            //END PAGE CONTENT
+        //END CONTENT
+//END page-CONTAINER
