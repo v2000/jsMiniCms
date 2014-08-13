@@ -117,47 +117,28 @@ div.content
             div.input-icon
                 i.fa.fa-user
                 input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="username")
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <div class="input-icon">
-                <i class="fa fa-lock"></i>
-                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-            <div class="controls">
-                <div class="input-icon">
-                    <i class="fa fa-check"></i>
-                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>
-            <input type="checkbox" name="tnc"/> I agree to the <a href="#">
-            Terms of Service </a>
-            and <a href="#">
-            Privacy Policy </a>
-            </label>
-            <div id="register_tnc_error">
-            </div>
-        </div>
-        <div class="form-actions">
-            <button id="register-back-btn" type="button" class="btn">
-            <i class="m-icon-swapleft"></i> Back </button>
-            <button type="submit" id="register-submit-btn" class="btn green pull-right">
-            Sign Up <i class="m-icon-swapright m-icon-white"></i>
-            </button>
-        </div>
-    </form>
-    <!-- END REGISTRATION FORM -->
-</div>
-<!-- END LOGIN -->
-<!-- BEGIN COPYRIGHT -->
-<div class="copyright">
-    2014 &copy; Metronic. Admin Dashboard Template.
-</div>
-<!-- END COPYRIGHT -->
+        div.form-group
+            label.control-label.visible-ie8.visible-ie9 Password
+            div.input-icon
+                i.fa.fa-lock
+                input.form-control.placeholder-no-fix#register_password(type="password" autocomplete="off" placeholder="Password" name="password")
+        div.form-group
+            label.control-label.visible-ie8.visible-ie9 Re-type Your Password
+            div.controls
+                div.input-icon
+                    i.fa.fa-check
+                    input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword")
+        div.form-group
+            label
+            input(type="checkbox" name="tnc") I agree to the
+            a(href="#") Terms of Service and
+            a(href="#") Privacy Policy
+            div#register_tnc_error
+        div.form-actions
+            button#register-back-btn.btn(type="button")
+            i.m-icon-swapleft Back
+            button#register-submit-btn.btn.green.pull-right(type="submit") Sign Up
+                i.m-icon-swapright.m-icon-white
+    //END REGISTRATION FORM
+//END LOGIN
+
