@@ -1,23 +1,3 @@
-
-
-div#login_container
-	-if(message)
-		div#note #{message}
-	
-	form#login(action="/admin/login" method="post") 
-			label Username:
-				div#input
-					input(type="text" name="email" placeholder=" Enter your e-mail")
-												
-			label Password:
-				div#input
-					input(type="text" name="password" placeholder=" Enter your password")
-
-			button(type="submit" ng-click="login()") Log in
-	br
-	div Or
-		a(href="/admin/signup")  signup
-
 body.login
     //BEGIN LOGO
     div.logo
@@ -47,8 +27,8 @@ div.content
                 i.fa.fa-lock
                 input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Password" name="password")
         div.form-actions
-            label.checkbox
-            input(type="checkbox" name="remember" value="1") Remember me
+            label.checkbox Remember me
+            input(type="checkbox" name="remember" value="1")
             button.btn.green.pull-right(type="submit") Login
                 i.m-icon-swapright.m-icon-white
         div.login-options
@@ -127,10 +107,10 @@ div.content
             div.controls
                 div.input-icon
                     i.fa.fa-check
-                    input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword")
+                    input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Re-type Your Password" name="password")
         div.form-group
-            label
-            input(type="checkbox" name="tnc") I agree to the
+            label I agree to the
+            input(type="checkbox" name="tnc")
             a(href="#") Terms of Service and
             a(href="#") Privacy Policy
             div#register_tnc_error
