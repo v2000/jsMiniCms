@@ -1,15 +1,74 @@
-a.btn(href="/admin/profile") Back
-h3 Edit Article
-        div#form_container
-            form#add_article
-                label Title
-                    input(type="text" name="title" value="{{article.title}}")
-                label Select category
-                    select(name="category")
-                        option Select
-                        option(ng-repeat="category in categories" value="{{category.name}}" selected="{{item.selected}}"){{category.name}}
-                label Body
-                    textarea(name="body content" cols="50" rows="10"){{article.body}}
-
-            button#submit_article(ng-click="save()") Submit
-            button.cancel Cancel
+//BEGIN CONTAINER
+div.page-container
+    //BEGIN SIDEBAR
+    div.page-sidebar-wrapper
+        div.page-sidebar.navbar-collapse.collapse
+            //BEGIN SIDEBAR MENU
+            ul.page-sidebar-menu(data-auto-scroll="true" data-slide-speed="200")
+                li.sidebar-toggler-wrapper
+                    //BEGIN SIDEBAR TOGGLER BUTTON
+                    div.sidebar-toggler
+                    //END SIDEBAR TOGGLER BUTTON
+                li.start
+                    a(href="#")
+                    i.icon-home
+                    span.title Dashboard
+                li.start
+                    a(href="#")
+                    i.icon-people
+                    span.arrow Users
+                    ul.sub-menu
+                        li a(href="#") Masha
+                        lia(href="#") Petja
+                li.start
+                    a(href="#")
+                    i.icon-pen
+                    span.arrow Categories
+                    ul.sub-menu
+                        li: a(href="#") JavaScript
+                        li: a(href="#") Ruby
+                        li: a(href="#") PhP
+                li.start
+                    a(href="#")
+                    i.icon-home
+                    span.title Tags
+            //END SIDEBAR MENU
+    //END SIDEBAR
+    //BEGIN CONTENT
+    div.page-content-wrapper.margin-bottom-40
+        div.page-content
+        div.row
+            div.col-md-12
+                h1 Add or edit article
+                //BEGIN EXTRAS PORTLET
+                div.portlet.box.green-haze
+                    div.portlet-title
+                        div.caption
+                            i.a.fa-gift
+                             | Bootstrap Markdown Editor
+                        div.tools
+                            a.collapse(href="javascript:;")
+                            a.config(href="#portlet-config")
+                            a.reload(href="javascript:;")
+                            a.remove(href="javascript:;")
+                    div.portlet-body.form
+                        form.form-horizontal.form-bordered
+                            div.form-body
+                                div.form-group
+                                    label.control-label.col-md-2 Default Markdown
+                                    div.col-md-10
+                                        textarea#myTextarea(name="content" data-provide="markdown" rows="10")
+                                div.form-group
+                                    label.control-label.col-md-2 Inline Editing
+                                    div.col-md-10
+                                        div.well(data-provide="markdown-editable")
+                                            h3 This is some editable heading
+                                            p Well, actually all contents within this "markdown-editable" context is really editable. Just click anywhere!
+                                            span.help-block Click above content to edit it.
+                                div.form-group
+                                    label.control-label.col-md-2 Fixed Width
+                                    div.col-md-10
+                                        textarea.form-control(name="content" data-provide="markdown" rows="10" data-width="400")
+                                            span.help-block Fixed widthe set with data-width="400" html attribute
+    //END CONTENT
+//END CONTAINER
