@@ -1,4 +1,5 @@
-body.login
+//BEGIN LOGIN
+div.content.login
     //BEGIN LOGO
     div.logo
         a(href="/articles")
@@ -7,118 +8,116 @@ body.login
     //BEGIN SIDEBAR TOGGLER BUTTON
     div.menu-toggler.sidebar-toggler
     //END SIDEBAR TOGGLER BUTTON -->
-    //BEGIN LOGIN
-div.content
     //BEGIN LOGIN FORM
-    form.login-form(action="/admin/login" method="post")
-        h3.form-title Login to your account
-        div.alert.alert-danger.display-hide
-            button.close(data-close="alert")
-            span Enter any e-mail and password.
-        div.form-group
-            //ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            label.control-label.visible-ie8.visible-ie9 Username
-            div.input-icon
-                i.fa.fa-user
-                input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="email")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Password
-            div.input-icon
-                i.fa.fa-lock
-                input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Password" name="password")
-        div.form-actions
-            label.checkbox Remember me
-            input(type="checkbox" name="remember" value="1")
-            button.btn.green.pull-right(type="submit") Login
-                i.m-icon-swapright.m-icon-white
-        div.login-options
-            h4 Or login with
-            ul.social-icons
-                li
-                    a.facebook(data-original-title="facebook" href="#")
-                li
-                    a.twitter(data-original-title="Twitter" href="#")
-                li
-                    a.googleplus(data-original-title="Goole Plus" href="#")
-                li
-                    a.linkedin(data-original-title="Linkedin" href="#")
-        div.create-account
-            p
-                | Don't have an account yet ?&nbsp;
-                a(href="javascript:;" id="register-btn")
-                    | Create an account
-    //END LOGIN FORM
-    //BEGIN REGISTRATION FORM
-    form.register-form(action="/admin/signup" method="post")
-        h3 Sign Up
-        p Enter your personal details below:
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Full Name
-            div.input-icon
-                i.fa.fa-font
-                input.form-control.placeholder-no-fix(type="text" placeholder="Full Name" name="fullname")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Full Name
-            div.row
-                div.col-md-6
-                    div.input-icon
-                        i.fa.fa-font
-                        input.form-control.placeholder-no-fix(type="text" placeholder="First Name" name="firstname")
-                div.col-md-6
-                    div.input-icon
-                        i.fa.fa-font
-                        input.form-control.placeholder-no-fix(type="text" placeholder="Last Name" name="lastname")
-        div.form-group
-            //ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            label.control-label.visible-ie8.visible-ie9 Email
-            div.input-icon
-                i.fa.fa-envelope
-                input.form-control.placeholder-no-fix(type="text" placeholder="Email" name="email")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Address
-            div.input-icon
-                i.fa.fa-check
-                input.form-control.placeholder-no-fix(type="text" placeholder="Address" name="address")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 City/Town
-            div.input-icon
-                i.fa.fa-location-arrow
-                input.form-control.placeholder-no-fix(type="text" placeholder="City/Town" name="city")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Country
-            select#select2_sample4.select2.form-control(name="country")
-                option(value="")
-                option(value="US") USA
-                option(value="SE") Sweden
-                option(value="NL") The Netherlands
-        p Enter your account details below:
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Username
-            div.input-icon
-                i.fa.fa-user
-                input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="username")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Password
-            div.input-icon
-                i.fa.fa-lock
-                input.form-control.placeholder-no-fix#register_password(type="password" autocomplete="off" placeholder="Password" name="password")
-        div.form-group
-            label.control-label.visible-ie8.visible-ie9 Re-type Your Password
-            div.controls
+    div.wind
+        form.login-form(action="#" method="post")
+            h3.form-title Login to your account
+            div.alert.alert-danger.display-hide
+                button.close(data-close="alert")
+                span Enter any username and password.
+            div.form-group
+                //ie8, ie9 does not support html5 placeholder, so we just show field title for that
+                label.control-label.visible-ie8.visible-ie9 Username
+                div.input-icon
+                    i.fa.fa-user
+                    input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="username")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Password
+                div.input-icon
+                    i.fa.fa-lock
+                    input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Password" name="password")
+            div.form-actions
+                label.checkbox Remember me
+                input(type="checkbox" name="remember" value="1")
+                button.btn.green.pull-right(type="submit") Login
+                    i.m-icon-swapright.m-icon-white
+            div.login-options
+                h4 Or login with
+                ul.social-icons
+                    li
+                        a.facebook(data-original-title="facebook" href="#")
+                    li
+                        a.twitter(data-original-title="Twitter" href="#")
+                    li
+                        a.googleplus(data-original-title="Goole Plus" href="#")
+                    li
+                        a.linkedin(data-original-title="Linkedin" href="#")
+            div.create-account
+                p
+                    | Don't have an account yet ?&nbsp;
+                    a(href="javascript:;" id="register-btn")
+                        | Create an account
+        //END LOGIN FORM
+        //BEGIN REGISTRATION FORM
+        form.register-form(action="#" method="post")
+            h3 Sign Up
+            p Enter your personal details below:
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Full Name
+                div.input-icon
+                    i.fa.fa-font
+                    input.form-control.placeholder-no-fix(type="text" placeholder="Full Name" name="fullname")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Full Name
+                div.row
+                    div.col-md-6
+                        div.input-icon
+                            i.fa.fa-font
+                            input.form-control.placeholder-no-fix(type="text" placeholder="First Name" name="firstname")
+                    div.col-md-6
+                        div.input-icon
+                            i.fa.fa-font
+                            input.form-control.placeholder-no-fix(type="text" placeholder="Last Name" name="lastname")
+            div.form-group
+                //ie8, ie9 does not support html5 placeholder, so we just show field title for that
+                label.control-label.visible-ie8.visible-ie9 Email
+                div.input-icon
+                    i.fa.fa-envelope
+                    input.form-control.placeholder-no-fix(type="text" placeholder="Email" name="email")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Address
                 div.input-icon
                     i.fa.fa-check
-                    input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Re-type Your Password" name="password")
-        div.form-group
-            label I agree to the
-            input(type="checkbox" name="tnc")
-            a(href="#") Terms of Service and
-            a(href="#") Privacy Policy
-            div#register_tnc_error
-        div.form-actions
-            button#register-back-btn.btn(type="button")
-            i.m-icon-swapleft Back
-            button#register-submit-btn.btn.green.pull-right(type="submit") Sign Up
-                i.m-icon-swapright.m-icon-white
-    //END REGISTRATION FORM
-//END LOGIN
-
+                    input.form-control.placeholder-no-fix(type="text" placeholder="Address" name="address")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 City/Town
+                div.input-icon
+                    i.fa.fa-location-arrow
+                    input.form-control.placeholder-no-fix(type="text" placeholder="City/Town" name="city")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Country
+                select#select2_sample4.select2.form-control(name="country")
+                    option(value="")
+                    option(value="US") USA
+                    option(value="SE") Sweden
+                    option(value="NL") The Netherlands
+            p Enter your account details below:
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Username
+                div.input-icon
+                    i.fa.fa-user
+                    input.form-control.placeholder-no-fix(type="text" autocomplete="off" placeholder="Username" name="username")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Password
+                div.input-icon
+                    i.fa.fa-lock
+                    input.form-control.placeholder-no-fix#register_password(type="password" autocomplete="off" placeholder="Password" name="password")
+            div.form-group
+                label.control-label.visible-ie8.visible-ie9 Re-type Your Password
+                div.controls
+                    div.input-icon
+                        i.fa.fa-check
+                        input.form-control.placeholder-no-fix(type="password" autocomplete="off" placeholder="Re-type Your Password" name="password")
+            div.form-group
+                label I agree to the
+                input(type="checkbox" name="tnc")
+                a(href="#") Terms of Service and
+                a(href="#") Privacy Policy
+                div#register_tnc_error
+            div.form-actions
+                button#register-back-btn.btn(type="button")
+                i.m-icon-swapleft Back
+                button#register-submit-btn.btn.green.pull-right(type="submit") Sign Up
+                    i.m-icon-swapright.m-icon-white
+        //END REGISTRATION FORM
+    //END LOGIN
