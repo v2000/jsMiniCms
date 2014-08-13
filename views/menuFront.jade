@@ -1,16 +1,30 @@
-div.header
+div.pre-header
     div.container
-        a.site-logo(href="#"): img(src="img/logo.png" alt="Verajulia - cms of the future")
-        a.mobi-toggler(href="#"): i.fa.fa-bars
-nav.navbar.navbar-default(role="navigation")
-    div.container-fluid
-        div.navbar-header
-            a.navbar-brand(href="/admin") Verajulia - mini CMS
-                img()
-        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
-            ul.nav.navbar-nav
-                 li.active: a(href="/site/articleListView") Home
-            ul.nav.navbar-nav.navbar-right
-                li: a(href="views/partials/admin/templates/login") Login
-    
-    
+        div.row
+            //BEGIN TOP BAR LEFT PART
+            div.col-md-6.col-sm-6.additional-shop-info
+                ul.list-unstyled.list-inline
+                    li:i.fa.fa-phone +46 76 21 36 134
+                    li:i.fa.fa-envelope-o info@verajulia.com
+            //END TOP BAR LEFT PART
+            //BEGIN TOP BAR MENU
+            div.col-md-6.col-sm-6.additional-nav
+                ul.list-unstyled.list-inline.pull-right
+                    li:a(href="#") Log In
+                    li:a(href="#") Registration
+            //END TOP BAR MENU
+            //END TOP BAR
+            div.header
+                div.container
+                    a.site-logo(href="#")
+                        img(src="img/logo.png" alt="Verajulia - cms of the future")
+                    a.mobi-toggler(href="#"): i.fa.fa-bars
+            nav.navbar.navbar-default(role="navigation")
+                div.container-fluid
+                    div.navbar-header
+                    div.bs-example-navbar-collapse-1.collapse.navbar-collapse
+                        ul.nav.navbar-nav
+                            li.active
+                                a(href="/site/articlelistview.html") Home
+                            li
+                                a(href="/prototypeCMS/profile.html") Admin

@@ -5,11 +5,17 @@ html(ng-app="myAdmin")
     //base(href='/jsminiCms')
     base(href='/')
     title Verajulia - Admin
-    //link(rel='stylesheet', href='/css/bootstrap.css')
-    //link(rel='stylesheet', href='/css/app.css')
-    //link(rel='stylesheet', href='/css/admincss.css')
-    
-  body
+    link(href="favicon.ico" rel="shortcut icon")
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css")
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel="stylesheet" href="/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/css/bootstrap-markdown.css')
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/components.css')
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/style-responsive.css')
+  body.corporate
 
     //include menuAdmin
     //include menuLogin
@@ -18,7 +24,7 @@ html(ng-app="myAdmin")
    
     div.container
         div.row
-        div.span12
+        div.col-md-12
             ng-view
 
           div.footer
