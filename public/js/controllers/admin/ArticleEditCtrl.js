@@ -1,41 +1,47 @@
 appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams, Article, Category, user, ArticleUser, DataProvider, ArticleCategory) {
-  //$scope.articles = Article.index();
-  $scope.categories = Category.index();
-  $scope.users = user.index();
+    //$scope.articles = Article.index();
+  //$scope.categories = Category.index();
+  //$scope.users = user.index();
 
 
-  DataProvider.success(function(data){
-     console.log("DataProvider.success");
-        $scope.userData = data;
-        $scope.userEmail=data.email;
-        $scope.userId=data._id;
-        var userId=data._id;
+  //DataProvider.success(function(data){
+  //  $scope.userData = data;
+  // $scope.userEmail=data.email;
+  //  $scope.userId=data._id;
+  //  var userId=data._id;
+  //  console.log("userId from PROFILE",userId);
+  //  $scope.articles = ArticleUser.index({ id: data._id });
+  //});
 
-        console.log("userId",userId);
-      if (userId) {
-        console.log("AAAAAAAAAAAA");
-        $scope.article = Article.show({ id: userId });
-      } else {
-         console.log("BBBBBBBBBBBBB");
-        $scope.article = new Article();
-      }
-
-  //    if($routeParams.depId){
-  //      $scope.article.categoryId = $routeParams.depId;
-  //    }
-
-      $scope.categories = Category.index();
-  });
+  //var aaa="5396ff5e01dd4ae810000003";
+  //$scope.articles = ArticleCategory.index({ id: aaa }); 
+  console.log("IT IS controller ArtivleEditCtrl");
   
-  //$scope.category = Category.show({ id: $routeParams.id });
 
-  //$scope.articles = ArticleCategory.index({ id: $routeParams.id });
+   if ($routeParams.id) {
+    console.log("SHOW");
+    $scope.article = Article.show({ id: $routeParams.id });
+  } else {
+    console.log("NEW");
+    $scope.article = new Article();
+  }
  
+  $routeParams.catId="5396ff4201dd4ae810000002";
+
+  if($routeParams.catId){
+    $scope.article.categoryId = $routeParams.catId;
+  }
+
+  $scope.categories = Category.index();
+
+  console.log("$routeParams.id", $routeParams.id);
+  console.log("$routeParams.catId", $routeParams.catId);
 
   $scope.submit = function() {
 
     function success(response) {
       $location.path("/admin/profile");
+      alert("Data save");
     }
 
     function failure(response) {
@@ -47,10 +53,12 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams,
           });
         }
       });
+    alert("Data not save");
     }
 
-    if (userId) {
+    if ($routeParams.id) {
       Article.update($scope.article, success, failure);
+       console.log("Article.update");
     } else {
       Article.create($scope.article, success, failure);
     }
@@ -58,10 +66,10 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams,
   };
 
   $scope.cancel = function() {
-    $location.path("/contacts/"+$scope.employee._id);
+    $location.path("/admin/articles/"+$scope.article._id+"/edit");
   };
 
-  $scope.errorClass = function(name) {
+  /*$scope.errorClass = function(name) {
     var s = $scope.form[name];
     return s && s.$invalid && s.$dirty ? "error" : "";
   };
@@ -73,8 +81,6 @@ appAdmin.controller("ArticleEditCtrl", function($scope, $location, $routeParams,
       result.push(value);
     });
     return result.join(", ");
-  };
+  };*/
 
-  console.log("$routeParams.id", $routeParams.id);
-  console.log("IT IS controller ArticleEditCtrl")
 });

@@ -45,7 +45,6 @@ exports.buildRoutes = function(modelName,what){
       res.json(department);
     }
   });
-
   // Update a document
   actions.indexOf('PUT') >=0 && (routes["PUT:" + path + "/:id"] = {
     queryType: "findByIdAndUpdate",
