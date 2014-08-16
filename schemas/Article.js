@@ -41,7 +41,7 @@ autoREST.add(routes,"GET:articles/category/:id",{
 
 
 
-// Return a list of articles in a certain categpry
+// Return a list of articles in a certain user
 autoREST.add(routes,"GET:articles/user/:id",{
   query: function(req){ return {userId: req.params.id}; }
 });
